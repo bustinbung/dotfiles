@@ -6,3 +6,5 @@
 	gpgsign = true
 [user]
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPATAJGUz2p7WIWuLTuyhlWKQlc3Mne1dua+ZUp0iUud
+	email = justin@bustinbung.com
+	name = Justin Jung
