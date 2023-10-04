@@ -586,4 +586,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- Autostart
-awful.util.spawn("picom")
+awful.util.spawn("picom --experimental-backends -b")
