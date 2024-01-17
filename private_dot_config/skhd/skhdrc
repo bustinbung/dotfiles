@@ -174,12 +174,12 @@ lalt + shift - 8 : yabai -m window --space 8
 lalt + shift - 9 : yabai -m window --space 9
 
 # change master width
-lalt + shift - h : ~/.config/skhd/resizeWindow.sh -h
-lalt + shift - l : ~/.config/skhd/resizeWindow.sh -l
+lalt + shift - h : ~/.config/skhd/scripts/resizeWindow.sh -h
+lalt + shift - l : ~/.config/skhd/scripts/resizeWindow.sh -l
 
 # change window height
-lalt + shift - u : ~/.config/skhd/resizeWindow.sh -u
-lalt + shift - d : ~/.config/skhd/resizeWindow.sh -d
+lalt + shift - u : ~/.config/skhd/scripts/resizeWindow.sh -u
+lalt + shift - d : ~/.config/skhd/scripts/resizeWindow.sh -d
 
 # balance windows
 lalt + shift - b : yabai -m space --balance
@@ -195,16 +195,16 @@ lalt - space : yabai -m window --toggle float
 lalt - m : yabai -m window --grid 1:1:0:0:1:1 || yabai -m window --toggle zoom-fullscreen; yabai -m window --focus
 
 # open alacritty
-lalt - t : open -n /Applications/Alacritty.app
+lalt - t : open -n /Applications/kitty.app
 
 # open raycast
 lalt - r : open /Applications/Raycast.app
 
 # open new arc window
-lalt - b : osascript ~/.config/skhd/openNewArc.scpt
+lalt - b : osascript ~/.config/skhd/scripts/openNewArc.scpt
 
 # quit frontmost app
-lalt + shift - c : osascript ~/.config/skhd/killFrontApp.scpt
+lalt + shift - c : osascript ~/.config/skhd/scripts/killFrontApp.scpt
 
 # reload yabai, sketchybar, skhd
 lalt + shift - r : source ~/.config/yabai/yabairc && sketchybar --reload && skhd -r
@@ -219,11 +219,11 @@ ctrl + lalt - return : yabai -m window --swap first
 lalt - return : yabai -m window --focus first
 
 # toggle layout
-lalt - s : ~/.config/skhd/changeLayout.sh
-lalt + shift - s : ~/.config/skhd/changeLayout.sh -r
+lalt - s : ~/.config/skhd/scripts/changeLayout.sh
+lalt + shift - s : ~/.config/skhd/scripts/changeLayout.sh -r
 
 # open new finder window
-lalt - f : osascript ~/.config/skhd/openNewFinder.scpt
+lalt - f : osascript ~/.config/skhd/scripts/openNewFinder.scpt
 
 # open new emacs window
 lalt - e : open -n /Applications/Emacs.app
