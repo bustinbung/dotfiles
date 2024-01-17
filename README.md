@@ -1,11 +1,21 @@
 # dotfiles
-Configuration files for my local machine running Debian 12
+Configuration files for my desktop running Debian 12 and laptop running MacOS Sonoma.
 
 ## tracking
 + `zsh`
 + `git`
 + `ssh`
-+ [`alacritty`](https://alacritty.org/)
++ [`vimgolf`](https://www.vimgolf.com/)
++ [`starship`](https://starship.rs/)
++ [`kitty`]([https://alacritty.org/](https://sw.kovidgoyal.net/kitty/))
++ [`doom emacs`](https://github.com/doomemacs/doomemacs)
+
+### linux
 + [`awesome`](https://awesomewm.org/)
 + [`picom`](https://github.com/yshui/picom/)
 + [`rofi`](https://github.com/davatorium/rofi/)
+
+### macos
++ [`sketchybar`](https://github.com/FelixKratz/SketchyBar)
++ [`skhd`](https://github.com/koekeishiya/skhd)
++ [`yabai`](https://github.com/koekeishiya/yabai)
