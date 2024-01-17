@@ -4,6 +4,9 @@ source $ZPLUG_HOME/init.zsh
 {{- end -}}
 
 {{- if eq .chezmoi.os "linux" }}
+# Init zplug
+source /usr/share/zplug/init.zsh
+
 # Fix KDE issues(?)
 export QT_STYLE_OVERRIDE=kvantum
 export DESKTOP_SESSION=plasma
