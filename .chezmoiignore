@@ -1,0 +1,9 @@
+README.md
+
+# Linux only
+{{- if ne .chezmoi.os "linux" }}
+.config/picom
+.config/picom/picom.conf
+.config/rofi
+.config/rofi/config.rasi
+{{- end }}
