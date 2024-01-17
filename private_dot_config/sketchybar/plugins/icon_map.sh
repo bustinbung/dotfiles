@@ -9,6 +9,9 @@ icon_map() {
     "Emacs")
         icon_result=":emacs:"
     ;;
+    "Finder")
+        icon_result=":finder:"
+    ;;
     "Arc")
         icon_result=":arc:"
     ;;
@@ -21,7 +24,7 @@ icon_map() {
     "Slack")
         icon_result=":slack:"
     ;;
-    "Alacritty" | "Terminal")
+    "Alacritty" | "Terminal" | "kitty")
         icon_result=":terminal:"
     ;;
     *)
