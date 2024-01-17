@@ -1,14 +1,14 @@
-{{ if eq .chezmoi.os "darwin" -}}
+{{- if eq .chezmoi.os "darwin" }}
 export ZPLUG_HOME=$(brew --prefix)/opt/zplug
 source $ZPLUG_HOME/init.zsh
-{{ end -}}
+{{ end }}
 
-{{ if eq .chezmoi.os "linux" -}}
+{{ if eq .chezmoi.os "linux" }}
 # Fix KDE issues(?)
 export QT_STYLE_OVERRIDE=kvantum
 export DESKTOP_SESSION=plasma
 export XDG_CURRENT_DESKTOP=KDE
-{{ end -}}
+{{ end }}
 
 # Aliases
 alias ls='ls --color=auto'
