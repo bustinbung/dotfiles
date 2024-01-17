@@ -7,7 +7,7 @@ Configuration files for my desktop running Debian 12 and laptop running MacOS So
 + `ssh`
 + [`vimgolf`](https://www.vimgolf.com/)
 + [`starship`](https://starship.rs/)
-+ [`kitty`]([https://alacritty.org/](https://sw.kovidgoyal.net/kitty/))
++ [`kitty`](https://sw.kovidgoyal.net/kitty/)
 + [`doom emacs`](https://github.com/doomemacs/doomemacs)
 
 ### linux
