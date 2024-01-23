@@ -347,8 +347,10 @@ globalkeys = gears.table.join(
               {description = "show the menubar", group = "launcher"}),
 
     -- Applications
-    awful.key({ modkey }, "f", function() awful.util.spawn("firefox") end,
-              {description = "launch firefox", group = "launcher"})
+--     awful.key({ modkey }, "f", function() awful.util.spawn("firefox") end,
+--               {description = "launch firefox", group = "launcher"})
+       awful.key({ modkey }, "b", function() awful.util.spawn("brave-browser") end,
+                 {description = "launch brave", group = "launcher"})
 )
 
 clientkeys = gears.table.join(
