@@ -85,8 +85,16 @@
 (after! doc-view
   (setq doc-view-resolution 300))
 
-(after! astro-ts-mode
-   (setq treesit-language-source-alist
-         '((astro "https://github.com/virchau13/tree-sitter-astro"
-            css "https://github.com/tree-sitter/tree-sitter-css"
-            tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src"))))
+;; (after! astro-ts-mode
+;;    (setq treesit-language-source-alist
+;;          '((astro "https://github.com/virchau13/tree-sitter-astro"
+;;             css "https://github.com/tree-sitter/tree-sitter-css"
+;;             tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src"))))
+
+(after! org-babel
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '(
+     (emacs-lisp . t)
+     (plantuml . t)
+     )))
