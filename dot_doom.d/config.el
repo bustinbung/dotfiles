@@ -91,6 +91,9 @@
 ;;             css "https://github.com/tree-sitter/tree-sitter-css"
 ;;             tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src"))))
 
+(after! elfeed-org
+  (setq rmh-elfeed-org-files '("~/Nextcloud/org/elfeed.org")))
+
 (after! org-babel
   (org-babel-do-load-languages
    'org-babel-load-languages
@@ -98,3 +101,4 @@
      (emacs-lisp . t)
      (plantuml . t)
      )))
+
