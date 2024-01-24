@@ -4,6 +4,7 @@ README.md
 {{- if ne .chezmoi.os "linux" }}
 .config/picom
 .config/rofi
+.config/awesome
 {{- end }}
 
 # MacOS only
