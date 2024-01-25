@@ -1,10 +1,28 @@
--- LuaRocks
--- Check for LuaRocks. (I don't know what this does)
+#+title: AwesomeWM Config
+#+property: header-args :tangle rc.lua :comments org
+#+auto_tangle: t
 
+* Table of Contents :toc:
+- [[#about][About]]
+- [[#luarocks][LuaRocks]]
+- [[#libraries][Libraries]]
+- [[#error-handling][Error Handling]]
+- [[#variable-definitions][Variable Definitions]]
+- [[#layouts][Layouts]]
+- [[#menu][Menu]]
+
+* About
+This is the literate config file for my AwesomeWM setup. Currently, it's a mirror of the default Awesome config file, but I plan on changing and modifying it (when I get the time to).
+
+* LuaRocks
+Check for LuaRocks. (I don't know what this does)
+
+#+begin_src lua
 pcall(require, "luarocks.loader")
+#+end_src
 
--- Libraries
-
+* Libraries
+#+begin_src lua
 -- Awesome libraries
 local gears = require("gears")
 local awful = require("awful")
@@ -27,9 +45,10 @@ require("awful.hotkeys_popup.keys")
 -- Debian menu entries
 local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
+#+end_src
 
--- Error Handling
-
+* Error Handling
+#+begin_src lua
 -- If awesome encounters errors on startup, throw an error and use fallback config.
 if awesome.startup_errors then
   naughty.notify({ preset = naughty.config.presets.critical,
@@ -51,9 +70,10 @@ do
     in_error = false
   end)
 end
+#+end_src
 
--- Variable Definitions
-
+* Variable Definitions
+#+begin_src lua
 -- Load theme. This takes care of colors, icons, font, and wallpaper.
 beautiful.init("/home/justin/.config/awesome/theme.lua")
 
@@ -64,10 +84,12 @@ editor_cmd = terminal .. " -e " .. editor
 
 -- Set modkey
 modkey = "Mod4"
+#+end_src
 
--- Layouts
--- Define table of layouts to use.
+* Layouts
+Define table of layouts to use.
 
+#+begin_src lua
 awful.layout.layouts = {
   -- Master/stack on R and L
   awful.layout.suit.tile,
@@ -83,10 +105,12 @@ awful.layout.layouts = {
   -- Floating
   awful.layout.suit.floating
 }
+#+end_src
 
--- Menu
--- Creates menu (top left icon/right click on desktop) and launcher widget.
+* Menu
+Creates menu (top left icon/right click on desktop) and launcher widget.
 
+#+begin_src lua
 myawesomemenu = {
   { "hotkeys", function() hotkeys_popup.show_help(nil, awful,screen.focused()) end },
   { "manual", terminal .. " -e man awesome" },
@@ -118,3 +142,4 @@ mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
 
 -- Menubar option
 menubar.utils.terminal = terminal
+#+end_src
