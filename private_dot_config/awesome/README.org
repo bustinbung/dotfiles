@@ -101,7 +101,7 @@ awful.layout.layouts = {
   awful.layout.suit.tile.left,
 
   -- BSP (like yabai)
-  awful.layout.suit.spiral.dwindle
+  awful.layout.suit.spiral.dwindle,
 
   -- Fullscreen
   awful.layout.suit.max,
@@ -124,7 +124,7 @@ myawesomemenu = {
   { "quit", function() awesome.quit() end },
 }
 
-local menu_awesome = { "awesome", myawesomemenu, beautful.awesome_icon }
+local menu_awesome = { "awesome", myawesomemenu, beautiful.awesome_icon }
 local menu_terminal = { "open terminal", terminal }
 
 if has_fdo then
@@ -220,8 +220,8 @@ awful.screen.connect_for_each_screen(function(s)
     awful.button({  }, 1, function() awful.layout.inc(1) end),
     awful.button({  }, 3, function() awful.layout.inc(-1) end),
     awful.button({  }, 4, function() awful.layout.inc(1) end),
-    awful.button({  }, 5, function() awful.layout.inc(1) end)
-  )
+    awful.button({  }, 5, function() awful.layout.inc(-1) end)
+  ))
 
   -- Create taglist widget
   s.mytaglist = awful.widget.taglist {
@@ -264,7 +264,7 @@ end)
 #+begin_src lua
 root.buttons(gears.table.join(
   awful.button({  }, 3, function() mymainmenu:toggle() end),
-  awful.button({  }, 4 awful.tag.viewnext),
+  awful.button({  }, 4, awful.tag.viewnext),
   awful.button({  }, 5, awful.tag.viewprev)
 ))
 #+end_src
@@ -277,6 +277,10 @@ globalkeys = gears.table.join(
             { description = "show help", group = "awesome" }),
   awful.key({ modkey }, "w", function() mymainmenu:show() end,
             { description = "show main menu", group = "awesome" }),
+  awful.key({ modkey, "Control" }, "r", awesome.restart,
+            { description = "reload awesome", group = "awesome" }),
+  awful.key({ modkey, "Shift" }, "q", awesome.quit,
+            { description = "reload awesome", group = "awesome" }),
 
   -- Client
   awful.key({ modkey }, "j", function() awful.client.focus.byidx(1) end,
@@ -304,6 +308,31 @@ globalkeys = gears.table.join(
                                end,
             { description = "go back to previous client", group = "client" }),
 
-  --
+  -- awful.key({ modkey }, "n" )
+
+  -- Layout
+  awful.key({ modkey }, "h", function() awful.tag.incmwfact(-0.05) end,
+            { description = "decrease master width factor", group = "layout" }),
+  awful.key({ modkey }, "l", function() awful.tag.incmwfact(0.05) end,
+            { description = "increase master width factor", group = "layout" }),
+
+  awful.key({ modkey, "Shift" }, "h", function() awful.tag.incnmaster(1, nil, true) end,
+            { description = "increase number of master clients", group = "layout" }),
+  awful.key({ modkey, "Shift" }, "l", function() awful.tag.incnmaster(-1, nil, true) end,
+            { description = "decrease number of master clients", group = "layout" }),
+
+  awful.key({ modkey, "Control" }, "h", function() awful.tag.incncol(1, nil, true) end,
+            { description = "increase number of columns", group = "layout" }),
+  awful.key({ modkey, "Control" }, "l", function() awful.tag.incncol(-1, nil, true) end,
+            { description = "decrease number of columns", group = "layout" }),
+
+  awful.key({ modkey }, "space", function() awful.layout.inc(1) end,
+            { description = "select next layout", group = "layout" }),
+  awful.key({ modkey, "Shift" }, "space", function() awful.layout.inc(1) end,
+            { description = "select previous layout", group = "layout" }),
+
+  -- Programs
+  awful.key({ modkey }, "t", function() awful.spawn(terminal) end,
+            { description = "open terminal", group = "launcher" })
 )
 #+end_src
