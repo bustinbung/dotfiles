@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
@@ -6,8 +6,15 @@ sudo yabai --load-sa
 # global config
 PADDING=8
 
+# check if sketchybar is running
+if [ -z "$(pgrep -i sketchybar)" ]; then
+    EXTERNAL_BAR=0
+else
+    EXTERNAL_BAR=34
+fi
+
 yabai -m config     \
-    external_bar    all:34:0    \
+    external_bar    all:0:$EXTERNAL_BAR    \
     mouse_follows_focus off \
     focus_follows_mouse autofocus   \
     window_origin_display   default \
@@ -39,16 +46,36 @@ yabai -m config     \
 # space 1: general
 yabai -m rule --add app="Thunderbird" space=^1
 yabai -m rule --add app="Messages"    space=^1
+yabai -m rule --add app="Calendar"    space=^1
 yabai -m space 1 --layout stack
 
 # space 2: development
 yabai -m rule --add app="Visual Studio Code"  space=^2
 yabai -m rule --add app="Emacs"               space=^2
+yabai -m rule --add app="Alacritty"           space=^2
 yabai -m space 2 --layout bsp
 
 # float apps
-yabai -m rule --add app="^(System Settings|Finder|Digital Color Meter|Shottr|1Password|Font Book|ProtonVPN|OneDrive|Shottr|Nextcloud|Google Drive|Box|Creative Cloud|Homerow|Archive Utility|Bartender 5)$" manage=off
-yabai -m rule --add app="Adobe.*" manage=off
+yabai -m rule --add app="^(System Settings|\
+                           Finder|\
+                           Digital Color Meter|\
+                           Shottr|\
+                           1Password|\
+                           Font Book|\
+                           ProtonVPN|\
+                           OneDrive|\
+                           Shottr|\
+                           Nextcloud|\
+                           Google Drive|\
+                           Box|\
+                           Creative Cloud|\
+                           Homerow|\
+                           Archive Utility|\
+                           Bartender 5)$" manage=off
 yabai -m rule --add label="About This Mac" app="System Information" manage=off
+
+# events
+yabai -m signal --add-event space_created action="sketchybar --trigger space_created"
+yabai -m signal --add-event space_destroyed action="sketchybar --trigger space_destroyed"
 
 echo "yabai configuration loaded.."
