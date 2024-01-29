@@ -101,3 +101,5 @@
      (emacs-lisp . t)
      (plantuml . t)
     )))
+
+(setq scroll-margin 8)
