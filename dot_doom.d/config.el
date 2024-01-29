@@ -21,7 +21,7 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "Monaspace Neon" :size 14 :weight 'medium))
+(setq doom-font (font-spec :family "JetBrains Mono" :size 14 :weight 'medium))
 ;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
@@ -76,7 +76,7 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(setq display-line-numbers-type 'relative
+(setq display-line-numbers-type 't
       doom-themes-neotree-enable-variable-pitch nil)
 
  (after! fountain-mode
@@ -100,4 +100,4 @@
    '(
      (emacs-lisp . t)
      (plantuml . t)
-     )))
+    )))

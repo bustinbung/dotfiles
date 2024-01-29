@@ -51,3 +51,4 @@
 
 (package! fountain-mode)
 (package! astro-ts-mode)
+(package! quickrun)
