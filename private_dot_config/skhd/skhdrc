@@ -195,7 +195,7 @@ lalt - space : yabai -m window --toggle float
 lalt - m : yabai -m window --grid 1:1:0:0:1:1 || yabai -m window --toggle zoom-fullscreen; yabai -m window --focus
 
 # open alacritty
-lalt - t : open -n /Applications/kitty.app
+lalt - return : open -n /Applications/Alacritty.app
 
 # open raycast
 lalt - r : open /Applications/Raycast.app
@@ -216,7 +216,7 @@ lalt + shift + ctrl - r : yabai --restart-service
 ctrl + lalt - return : yabai -m window --swap first
 
 # focus master
-lalt - return : yabai -m window --focus first
+# lalt - return : yabai -m window --focus first
 
 # toggle layout
 lalt - s : ~/.config/skhd/scripts/changeLayout.sh
