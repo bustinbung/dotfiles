@@ -1,0 +1,18 @@
+import = [
+    "~/.config/alacritty/themes/themes/tokyo-night.toml"
+]
+
+live_config_reload = true
+
+[window]
+padding = { x = 1, y = 1 }
+
+[font]
+normal = { family = "JetBrains Mono", style = "Regular" }
+{{ if eq .chezmoi.os "darwin" }}
+size=14
+{{- end -}}
+
+{{- if eq .chezmoi.os "linux" }}
+size=10
+{{- end }}
