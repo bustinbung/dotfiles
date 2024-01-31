@@ -36,7 +36,7 @@ yabai -m config     \
     mouse_action2   resize  \
     mouse_drop_action   swap    \
                                 \
-    layout  bsp   \
+    layout  stack   \
     top_padding $PADDING    \
     bottom_padding  $PADDING    \
     left_padding    $PADDING    \
