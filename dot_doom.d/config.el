@@ -76,8 +76,8 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
- (after! fountain-mode
-   (setq fountain-export-scene-heading-format '(bold double-space)))
+(after! fountain-mode
+  (setq fountain-export-scene-heading-format '(bold double-space)))
 
 (after! doc-view
   (setq doc-view-resolution 300))
