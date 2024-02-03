@@ -15,7 +15,7 @@
 ;; - `doom-variable-pitch-font' -- a non-monospace font (where applicable)
 ;; - `doom-big-font' -- used for `doom-big-font-mode'; use this for
 ;;   presentations or streaming.
-;; - `doom-unicode-font' -- for unicode glyphs
+;; - `doom-symbol-font' -- for symbols
 ;; - `doom-serif-font' -- for the `fixed-pitch-serif' face
 ;;
 ;; See 'C-h v doom-font' for documentation and more examples of what they
@@ -40,8 +40,8 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/Nextcloud/org")
-(setq org-agenda-files (directory-files-recursively "~/Nextcloud/org" "\\.org$"))
+(setq org-directory "~/Nextcloud/org/"
+      org-agenda-files (directory-files-recursively "~/Nextcloud/org" "\\.org$"))
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
@@ -76,27 +76,7 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+(setq scroll-margin 7)
+
 (after! fountain-mode
   (setq fountain-export-scene-heading-format '(bold double-space)))
-
-(after! doc-view
-  (setq doc-view-resolution 300))
-
-;; (after! astro-ts-mode
-;;    (setq treesit-language-source-alist
-;;          '((astro "https://github.com/virchau13/tree-sitter-astro"
-;;             css "https://github.com/tree-sitter/tree-sitter-css"
-;;             tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src"))))
-
-(after! elfeed-org
-  (setq rmh-elfeed-org-files '("~/Nextcloud/org/elfeed.org")))
-
-(after! org-babel
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '(
-     (emacs-lisp . t)
-     (plantuml . t)
-    )))
-
-(setq scroll-margin 8)
