@@ -1,16 +1,12 @@
 {{ if eq .chezmoi.os "darwin" }}
-export ZPLUG_HOME=$(brew --prefix)/opt/zplug
-source $ZPLUG_HOME/init.zsh
+# change java version
+export JAVA_HOME=`/usr/libexec/java_home -v 17.0.10`
 {{- end -}}
 
 {{- if eq .chezmoi.os "linux" }}
-# Init zplug
-source /usr/share/zplug/init.zsh
-
-# Fix KDE issues(?)
-export QT_STYLE_OVERRIDE=kvantum
-export DESKTOP_SESSION=plasma
-export XDG_CURRENT_DESKTOP=KDE
+# Init antidote
+source '/usr/share/zsh-antidote/antidote.zsh'
+antidote load
 {{- end }}
 
 # Aliases
@@ -25,19 +21,11 @@ alias lg="lazygit"
 # Always use vi keybindings
 bindkey -v
 
-setopt histignorealldups sharehistory
-
-# Shell history
-HISTSIZE=5000
-SAVEHIST=5000
-HISTFILE=~/.zsh_history
-
-# Use modern completion
-autoload -Uz compinit
-compinit
-
 # Set editor
 export EDITOR=nvim
+
+# Set terminal
+export TERMINAL=/usr/bin/alacritty
 
 # bun completions
 [ -s "~/.bun/_bun" ] && source "~/.bun/_bun"
@@ -47,7 +35,7 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # doom
-export PATH="$HOME/.emacs.d/bin:$PATH"
+export PATH="$HOME/.config/emacs/bin:$PATH"
 
 # nnn
 n ()
@@ -82,24 +70,24 @@ n ()
 }
 
 # zplug plugins
-zplug "plugins/git", from:oh-my-zsh
-zplug "plugins/sudo", from:oh-my-zsh
-zplug "plugins/command-not-found", from:oh-my-zsh
-zplug "zsh-users/zsh-syntax-highlighting"
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-history-substring-search"
-zplug "zsh-users/zsh-completions"
-zplug "junegunn/fzf"
-zplug "jeffreytse/zsh-vi-mode"
-
-# zplug - install/load new plugins when zsh is started or reloaded
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-zplug load
+# zplug "plugins/git", from:oh-my-zsh
+# zplug "plugins/sudo", from:oh-my-zsh
+# zplug "plugins/command-not-found", from:oh-my-zsh
+# zplug "zsh-users/zsh-syntax-highlighting"
+# zplug "zsh-users/zsh-autosuggestions"
+# zplug "zsh-users/zsh-history-substring-search"
+# zplug "zsh-users/zsh-completions"
+# zplug "junegunn/fzf"
+# zplug "jeffreytse/zsh-vi-mode"
+# 
+# # zplug - install/load new plugins when zsh is started or reloaded
+# if ! zplug check --verbose; then
+#     printf "Install? [y/N]: "
+#     if read -q; then
+#         echo; zplug install
+#     fi
+# fi
+# zplug load
 
 # starship prompt
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
@@ -107,6 +95,3 @@ eval "$(starship init zsh)"
 
 # thefuck
 eval $(thefuck --alias)
-
-# change java version
-export JAVA_HOME=`/usr/libexec/java_home -v 17.0.10`
