@@ -30,12 +30,18 @@ export TERMINAL=/usr/bin/alacritty
 # bun completions
 [ -s "~/.bun/_bun" ] && source "~/.bun/_bun"
 
+# pipx
+export PATH="$PATH:/home/justin/.local/bin"
+
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # doom
 export PATH="$HOME/.config/emacs/bin:$PATH"
+
+# rofi themes
+export PATH=$HOME/.config/rofi/scripts:$PATH
 
 # nnn
 n ()
