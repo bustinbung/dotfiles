@@ -75,26 +75,6 @@ n ()
     }
 }
 
-# zplug plugins
-# zplug "plugins/git", from:oh-my-zsh
-# zplug "plugins/sudo", from:oh-my-zsh
-# zplug "plugins/command-not-found", from:oh-my-zsh
-# zplug "zsh-users/zsh-syntax-highlighting"
-# zplug "zsh-users/zsh-autosuggestions"
-# zplug "zsh-users/zsh-history-substring-search"
-# zplug "zsh-users/zsh-completions"
-# zplug "junegunn/fzf"
-# zplug "jeffreytse/zsh-vi-mode"
-# 
-# # zplug - install/load new plugins when zsh is started or reloaded
-# if ! zplug check --verbose; then
-#     printf "Install? [y/N]: "
-#     if read -q; then
-#         echo; zplug install
-#     fi
-# fi
-# zplug load
-
 # starship prompt
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init zsh)"
