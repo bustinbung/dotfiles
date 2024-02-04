@@ -1,5 +1,5 @@
 # dotfiles
-Configuration files for my desktop running Debian 12 and laptop running MacOS Sonoma.
+Configuration files for my desktop running Arch Linux and laptop running MacOS Sonoma.
 
 ## tracking
 + `zsh`
@@ -7,7 +7,7 @@ Configuration files for my desktop running Debian 12 and laptop running MacOS So
 + `ssh`
 + [`vimgolf`](https://www.vimgolf.com/)
 + [`starship`](https://starship.rs/)
-+ [`kitty`](https://sw.kovidgoyal.net/kitty/)
++ [`alacritty`](https://alacritty.org)
 + [`doom emacs`](https://github.com/doomemacs/doomemacs)
 
 ### linux
