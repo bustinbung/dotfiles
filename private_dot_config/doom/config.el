@@ -80,3 +80,8 @@
 
 (after! fountain-mode
   (setq fountain-export-scene-heading-format '(bold double-space)))
+
+;; Don't create new workspace on new client connect
+(after! persp-mode
+  (setq persp-emacsclient-init-frame-behaviour-override "main")
+  )
