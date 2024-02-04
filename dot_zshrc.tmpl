@@ -4,6 +4,7 @@ export JAVA_HOME=`/usr/libexec/java_home -v 17.0.10`
 
 # Init antidote
 source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
+antidote load
 {{- end -}}
 
 {{- if eq .chezmoi.os "linux" }}
