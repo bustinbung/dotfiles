@@ -85,3 +85,9 @@
 (after! persp-mode
   (setq persp-emacsclient-init-frame-behaviour-override "main")
   )
+
+(after! elfeed
+  (setq elfeed-feeds '(("https://variety.com/feed" entertainment)
+                       ("https://hollywoodreporter.com/feed" entertainment)
+                       ("https://deadline.com/feed" entertainment)
+                       ("https://thewrap.com/feed" entertainment))))
