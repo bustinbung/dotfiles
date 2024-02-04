@@ -4,13 +4,11 @@ export JAVA_HOME=`/usr/libexec/java_home -v 17.0.10`
 
 # Init antidote
 source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
-antidote load
 {{- end -}}
 
 {{- if eq .chezmoi.os "linux" }}
 # Init antidote
 source '/usr/share/zsh-antidote/antidote.zsh'
-antidote load
 
 # rofi themes
 export PATH=$HOME/.config/rofi/scripts:$PATH
@@ -18,6 +16,7 @@ export PATH=$HOME/.config/rofi/scripts:$PATH
 # Set terminal
 export TERMINAL=/usr/bin/alacritty
 {{- end }}
+antidote load
 
 # Aliases
 alias ls='ls --color=auto'
