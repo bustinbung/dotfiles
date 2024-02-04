@@ -226,4 +226,4 @@ lalt + shift - s : ~/.config/skhd/scripts/changeLayout.sh -r
 lalt - f : osascript ~/.config/skhd/scripts/openNewFinder.scpt
 
 # open new emacs window
-lalt - e : open -n /Applications/Emacs.app
+lalt - e : open -n "/Applications/Emacs (Client).app"
