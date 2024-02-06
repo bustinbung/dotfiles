@@ -341,11 +341,11 @@ globalkeys = gears.table.join(
             { description = "run rofi window", group = "launcher" }),
 
   -- Launcher
-  awful.key({ modkey }, "t", function() awful.util.spawn(terminal) end,
+  awful.key({ modkey }, "t", function() awful.spawn(terminal) end,
             { description = "open terminal", group = "launcher" }),
-  awful.key({ modkey }, "b", function() awful.util.spawn("brave") end,
+  awful.key({ modkey }, "b", function() awful.spawn("brave") end,
             { description = "open browser", group = "launcher" }),
-  awful.key({ modkey }, "e", function() awful.util.spawn("emacsclient -nc") end,
+  awful.key({ modkey }, "e", function() awful.spawn("emacsclient -nc") end,
             { description = "open browser", group = "launcher" })
 )
 
@@ -541,5 +541,10 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Autostart
 
-awful.util.spawn("picom -b")
-awful.util.spawn("1password --silent")
+-- compositor
+awful.spawn("picom -b")
+
+-- services
+awful.spawn("1password --silent")
+awful.spawn("emacs --daemon")
+awful.spawn("nextcloud")
