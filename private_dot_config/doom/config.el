@@ -91,3 +91,5 @@
                        ("https://hollywoodreporter.com/feed" entertainment)
                        ("https://deadline.com/feed" entertainment)
                        ("https://thewrap.com/feed" entertainment))))
+
+(map! :leader :desc "List" "o a l" 'org-agenda-list)
