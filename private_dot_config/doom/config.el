@@ -76,15 +76,14 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(setq scroll-margin 7)
+(setq scroll-margin 6)
 
 (after! fountain-mode
   (setq fountain-export-scene-heading-format '(bold double-space)))
 
 ;; Don't create new workspace on new client connect
 (after! persp-mode
-  (setq persp-emacsclient-init-frame-behaviour-override "main")
-  )
+  (setq persp-emacsclient-init-frame-behaviour-override "main"))
 
 (after! elfeed
   (setq elfeed-feeds '(("https://variety.com/feed" entertainment)

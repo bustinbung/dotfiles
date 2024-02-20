@@ -1,0 +1,13 @@
+import = [
+    "~/.config/alacritty/themes/themes/tokyo-night.toml"
+]
+
+live_config_reload = true
+
+[window]
+    dimensions = { columns = 80, lines = 24 }
+    padding = { x = 1, y = 1 }
+
+[font]
+    normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+    size = 12
