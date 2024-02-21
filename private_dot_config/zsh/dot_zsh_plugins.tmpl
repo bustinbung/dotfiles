@@ -1,0 +1,17 @@
+mattmc3/zephyr path:plugins/color
+mattmc3/zephyr path:plugins/completion
+mattmc3/zephyr path:plugins/directory
+# mattmc3/zephyr path:plugins/editor
+mattmc3/zephyr path:plugins/environment
+mattmc3/zephyr path:plugins/history
+mattmc3/zephyr path:plugins/prompt
+mattmc3/zephyr path:plugins/utility
+{{- if eq .chezmoi.os "darwin" }}
+mattmc3/zephyr path:plugins/homebrew
+mattmc3/zephyr path:plugins/macos
+{{- end }}
+
+zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-history-substring-search
+zsh-users/zsh-completions
