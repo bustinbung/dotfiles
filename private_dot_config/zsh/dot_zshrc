@@ -2,14 +2,6 @@
 # Ignore comment lines (#)
 setopt interactivecomments
 
-# Ignore duplicate history entries
-setopt hist_ignore_dups
-
-# Set history settings
-HISTFILE="${ZDOTDIR}/.zsh_history"
-HISTSIZE=10000
-SAVEHIST=10000
-
 # Set ZLE vi mode
 bindkey -v
 
