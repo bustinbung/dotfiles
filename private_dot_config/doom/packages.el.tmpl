@@ -50,3 +50,6 @@
 ;; (unpin! t)
 
 (package! fountain-mode)
+{{- if eq .chezmoi.os "darwin" }}
+(package! osx-dictionary)
+{{- end }}
