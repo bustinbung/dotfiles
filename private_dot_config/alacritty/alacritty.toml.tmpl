@@ -5,9 +5,12 @@ import = [
 live_config_reload = true
 
 [window]
-    dimensions = { columns = 80, lines = 24 }
     padding = { x = 2, y = 2 }
 
 [font]
     normal = { family = "JetBrainsMono Nerd Font Mono", style = "Regular" }
+    {{- if eq .chezmoi.os "darwin" }}
+    size = 14
+    {{- else if eq .chemzmoi.os "linux" }}
     size = 12
+    {{- end }}
