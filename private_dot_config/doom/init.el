@@ -194,4 +194,5 @@
        (default +bindings +smartparens))
 
 (setq evil-respect-visual-line-mode t)
+(setq tab-width 4)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
