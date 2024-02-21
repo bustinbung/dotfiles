@@ -6,6 +6,9 @@ path=(
     # emacs
     $HOME/.config/emacs/bin
 
+    # java
+    /usr/lib/jvm/default/bin
+
     $path
 )
 
