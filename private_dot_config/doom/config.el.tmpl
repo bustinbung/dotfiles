@@ -79,7 +79,7 @@
 (setq scroll-margin 6)
 
 (after! fountain-mode
-  (setq fountain-export-scene-heading-format '(bold double-space)))
+  (setq fountain-export-scene-heading-format '(bold double-space))
 
 ;; Don't create new workspace on new client connect
 (after! persp-mode
@@ -92,6 +92,10 @@
                        ("https://thewrap.com/feed" entertainment))))
 
 (after! vterm
+{{- if eq .chezmoi.os "darwin" }}
+  (setq vterm-shell "/bin/zsh"))
+{{- else if eq .chezmoi.os "linux" }}
   (setq vterm-shell "/usr/bin/zsh"))
+{{- end }}
 
 (map! :leader :desc "List" "o a l" 'org-agenda-list)
