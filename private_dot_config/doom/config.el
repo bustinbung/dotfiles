@@ -91,4 +91,7 @@
                        ("https://deadline.com/feed" entertainment)
                        ("https://thewrap.com/feed" entertainment))))
 
+(after! vterm
+  (setq vterm-shell "/usr/bin/zsh"))
+
 (map! :leader :desc "List" "o a l" 'org-agenda-list)
