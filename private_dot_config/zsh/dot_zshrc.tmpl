@@ -10,13 +10,9 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^x^e' edit-command-line
 
-# Search history up to current cursor position
-autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-
-[[ -n "${key[Up]}"   ]] && bindkey -- "${key[Up]}"   up-line-or-beginning-search
-[[ -n "${key[Down]}" ]] && bindkey -- "${key[Down]}" down-line-or-beginning-search
+# zsh-history-substring-search config
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 
 ### Aliases ###
@@ -61,7 +57,11 @@ alias spqt='sudo pacman -Qet'
 
 ### Tools ###
 # antidote
+{{- if eq .chezmoi.os "darwin" }}
+source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
+{{- else if eq .chezmoi.os "linux" }}
 source ${ZDOTDIR}/.antidote/antidote.zsh
+{{- end }}
 antidote load ${ZDOTDIR}/.zsh_plugins
 
 # zoxide
@@ -102,3 +102,12 @@ n ()
         rm -f "$NNN_TMPFILE" > /dev/null
     }
 }
+
+{{- if eq .chezmoi.os "darwin" }}
+# fzf
+source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
+source "/opt/homebrew/opt/fzf/shell/completion.zsh"
+
+# java
+export JAVA_HOME=`/usr/libexec/java_home -v 17.0.10`
+{{- end }}
