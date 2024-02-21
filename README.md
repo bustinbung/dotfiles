@@ -1,19 +1,16 @@
 # dotfiles
-Configuration files for my desktop running Arch Linux and laptop running MacOS Sonoma.
+Configuration files for my desktop running EndeavorOS and laptop running MacOS Sonoma.
 
 ## tracking
 + `zsh`
 + `git`
 + `ssh`
-+ [`vimgolf`](https://www.vimgolf.com/)
 + [`starship`](https://starship.rs/)
 + [`alacritty`](https://alacritty.org)
 + [`doom emacs`](https://github.com/doomemacs/doomemacs)
 
 ### linux
-+ [`awesome`](https://awesomewm.org/)
-+ [`picom`](https://github.com/yshui/picom/)
-+ [`rofi`](https://github.com/davatorium/rofi/)
++ nothing yet (just switched back to Plasma)
 
 ### macos
 + [`sketchybar`](https://github.com/FelixKratz/SketchyBar)
