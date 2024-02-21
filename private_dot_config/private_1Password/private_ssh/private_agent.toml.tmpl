@@ -24,7 +24,11 @@
 #
 # You can test the result by running:
 #
+{{- if eq .chezmoi.os "darwin" }}
+#  SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock ssh-add -l
+{{- else if eq .chezmoi.os "linux" }}
 #  SSH_AUTH_SOCK=~/.1password/agent.sock ssh-add -l
+{{- end }}
 #
 # More examples can be found here:
 #  https://developer.1password.com/docs/ssh/agent/config
