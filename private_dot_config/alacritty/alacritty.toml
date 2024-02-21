@@ -6,7 +6,7 @@ live_config_reload = true
 
 [window]
     dimensions = { columns = 80, lines = 24 }
-    padding = { x = 1, y = 1 }
+    padding = { x = 2, y = 2 }
 
 [font]
     normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
