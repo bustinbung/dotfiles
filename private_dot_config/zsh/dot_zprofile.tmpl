@@ -8,7 +8,7 @@ path=(
 
     # java
     /usr/lib/jvm/default/bin
-    {{ if eq .chezmoi.os "darwin" }}
+    {{- if eq .chezmoi.os "darwin" }}
     #fzf
     /opt/homebrew/opt/fzf/bin
     {{- end }}
