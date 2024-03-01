@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+{{ if eq .chezmoi.os "linux" -}}
+# Install arch packages
+sudo pacman -S --noconfirm --needed neovim alacritty zsh zoxide starship emacs-nativecomp ripgrep fd ttf-jetbrains-mono ttf-jetbrains-mono-nerd nnn lazygit
+
+# Install AUR packages
+yay -S --noconfirm --needed brave-bin zsh-antidote 1password 1password-cli
+
+# Fix suspend issues
+if [ ! -e /etc/tmpfiles.d/fix-suspend.conf ] ; then
+  echo w /proc/acpi/wakeup - - - - GPP0 | sudo tee /etc/tmpfiles.d/fix-suspend.conf
+fi
+sudo systemctl enable nvidia-{suspend,hibernate,resume}
+
+# Install doom emacs
+if [ ! -d $HOME/.config/emacs ] ; then
+  git clone --depth 1 https://github.com/doomemacs/doomemacs $HOME/.config/emacs
+  $HOME/.config/emacs/bin/doom install --force --config --env --install --fonts
+fi
+
+# Install neovim configuration
+if [ ! -d $HOME/.config/nvim ] ; then
+  git clone https://github.com/bustinbung/kickstart.nvim.git $HOME/.config/nvim
+fi
+
+# Change user shell
+sudo chsh -s $(which zsh) $(whoami)
+{{ end }}
