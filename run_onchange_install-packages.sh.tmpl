@@ -14,13 +14,13 @@ sudo systemctl enable nvidia-{suspend,hibernate,resume}
 
 # Install doom emacs
 if [ ! -d $HOME/.config/emacs ] ; then
-  git clone --depth 1 https://github.com/doomemacs/doomemacs $HOME/.config/emacs
+  git clone --depth 1 git@github.com:doomemacs/doomemacs $HOME/.config/emacs
   $HOME/.config/emacs/bin/doom install --force --config --env --install --fonts
 fi
 
 # Install neovim configuration
 if [ ! -d $HOME/.config/nvim ] ; then
-  git clone https://github.com/bustinbung/kickstart.nvim.git $HOME/.config/nvim
+  git clone git@github.com:bustinbung/kickstart.nvim.git $HOME/.config/nvim
 fi
 
 # Change user shell
