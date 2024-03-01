@@ -24,5 +24,7 @@ if [ ! -d $HOME/.config/nvim ] ; then
 fi
 
 # Change user shell
-sudo chsh -s $(which zsh) $(whoami)
+if [ ! $SHELL = $(which zsh) ] ; then
+  sudo chsh -s $(which zsh) $(whoami)
+fi
 {{ end }}
