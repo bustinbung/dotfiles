@@ -1,6 +1,3 @@
-[submodule "private_dot_config/kickstart.nvim"]
-	path = private_dot_config/kickstart.nvim
-	url = git@github.com:bustinbung/kickstart.nvim
 [submodule "private_dot_config/nvim"]
 	path = private_dot_config/nvim
 	url = git@github.com:bustinbung/kickstart.nvim
