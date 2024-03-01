@@ -60,7 +60,7 @@ alias spqt='sudo pacman -Qet'
 {{- if eq .chezmoi.os "darwin" }}
 source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
 {{- else if eq .chezmoi.os "linux" }}
-source ${ZDOTDIR}/.antidote/antidote.zsh
+source /usr/share/zsh-antidote/antidote.zsh
 {{- end }}
 antidote load ${ZDOTDIR}/.zsh_plugins
 
