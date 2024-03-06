@@ -28,3 +28,8 @@ if [ ! $SHELL = $(which zsh) ] ; then
   sudo chsh -s $(which zsh) $(whoami)
 fi
 {{ end }}
+
+{{ if eq .chezmoi.os "darwin" -}}
+# Install packages
+brew bundle install ~/.local/share/chezmoi/Brewfile
+{{ end }}
