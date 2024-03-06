@@ -10,3 +10,6 @@ README.md
 .config/skhd/
 .config/yabai/
 {{- end }}
+
+# All
+Brewfile
