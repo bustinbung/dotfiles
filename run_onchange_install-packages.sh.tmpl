@@ -31,5 +31,5 @@ fi
 
 {{ if eq .chezmoi.os "darwin" -}}
 # Install packages
-brew bundle install ~/.local/share/chezmoi/Brewfile
+brew bundle install --no-lock --file=~/.local/share/chezmoi/Brewfile
 {{ end }}
