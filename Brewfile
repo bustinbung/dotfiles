@@ -61,13 +61,22 @@ brew "d12frosted/emacs-plus/emacs-plus@29", args: ["with-elrumo2-icon", "with-im
 brew "felixkratz/formulae/sketchybar"
 brew "koekeishiya/formulae/skhd"
 brew "koekeishiya/formulae/yabai"
+cask "1password"
 cask "1password-cli"
+cask "ableton-live-standard"
+cask "adobe-creative-cloud"
 cask "alacritty"
+cask "appcleaner"
+cask "arc"
+cask "bartender"
+cask "daisydisk"
+cask "discord"
 cask "font-fira-code"
 cask "font-fira-code-nerd-font"
 cask "font-jetbrains-mono"
 cask "font-jetbrains-mono-nerd-font"
 cask "font-monaspace"
+cask "homerow"
 cask "obsidian"
 cask "vscodium"
 mas "1Password for Safari", id: 1569813296
@@ -88,6 +97,4 @@ mas "Motion", id: 434290957
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Playgrounds", id: 1496833156
-mas "Spark Desktop", id: 6445813049
-mas "The Unarchiver", id: 425424353
 mas "Xcode", id: 497799835
