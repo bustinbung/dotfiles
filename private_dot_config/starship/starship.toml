@@ -167,8 +167,7 @@ vimcmd_symbol = "[❮](green)"
 
 [directory]
 truncation_length = 4
-# Catppuccin 'lavender'
-style = "bold lavender"
+style = "bold sapphire"
 read_only = " 󰌾"
 
 [palettes.catppuccin_mocha]
