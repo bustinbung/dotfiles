@@ -70,6 +70,17 @@ function br() {
 
 # Zellij
 alias z='zellij'
+function zl() {
+  ZJ_SESSIONS=$(zellij list-sessions)
+  NO_SESSIONS=$(echo "${ZJ_SESSIONS}" | wc -l)
+
+  if [ "${NO_SESSIONS}" -ge 2 ]; then
+    zellij attach \
+      "$(echo "${ZJ_SESSIONS}" | fzf)"
+  else
+    zellij attach -c
+  fi
+}
 
 
 ### Tools ###
@@ -119,6 +130,9 @@ n ()
         rm -f "$NNN_TMPFILE" > /dev/null
     }
 }
+
+# zellij auto-attach
+eval "$(zellij setup --generate-auto-start zsh)"
 
 # sdkman
 {{- if eq .chezmoi.os "linux" }}
