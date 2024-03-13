@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 {{ if eq .chezmoi.os "linux" -}}
 # Install arch packages
-sudo pacman -S --noconfirm --needed neovim alacritty zsh zoxide starship emacs-nativecomp ripgrep fd ttf-jetbrains-mono ttf-jetbrains-mono-nerd nnn lazygit tree-sitter xclip htop nextcloud-client zellij maven
+sudo pacman -S --noconfirm --needed neovim alacritty zsh zoxide starship emacs-nativecomp ripgrep fd ttf-jetbrains-mono ttf-jetbrains-mono-nerd nnn lazygit tree-sitter xclip htop nextcloud-client zellij maven libreoffice-still
 
 # Install AUR packages
 yay -S --noconfirm --needed brave-bin zsh-antidote 1password 1password-cli
