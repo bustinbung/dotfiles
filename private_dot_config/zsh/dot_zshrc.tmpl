@@ -125,6 +125,7 @@ n ()
 source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
 source "/opt/homebrew/opt/fzf/shell/completion.zsh"
 
-# java
-export JAVA_HOME=`/usr/libexec/java_home -v 17.0.10`
+# sdkman
+export SDKMAN_DIR=$(brew --prefix sdkman-cli)/libexec
+[[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
 {{- end }}
