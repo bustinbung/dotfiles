@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 {{ if eq .chezmoi.os "linux" -}}
 # Install arch packages
-sudo pacman -S --noconfirm --needed neovim alacritty zsh zoxide starship emacs-nativecomp ripgrep fd ttf-jetbrains-mono ttf-jetbrains-mono-nerd nnn lazygit tree-sitter xclip htop nextcloud-client
+sudo pacman -S --noconfirm --needed neovim alacritty zsh zoxide starship emacs-nativecomp ripgrep fd ttf-jetbrains-mono ttf-jetbrains-mono-nerd nnn lazygit tree-sitter xclip htop nextcloud-client zellij maven
 
 # Install AUR packages
 yay -S --noconfirm --needed brave-bin zsh-antidote 1password 1password-cli
@@ -21,6 +21,15 @@ fi
 # Install neovim configuration
 if [ ! -d $HOME/.config/nvim ] ; then
   git clone git@github.com:bustinbung/kickstart.nvim.git $HOME/.config/nvim
+fi
+
+# Install SDKMAN
+if [ ! -d $HOME/.sdkman ] ; then
+  curl -s "https://get.sdkman.io" | bash
+  source $HOME/.sdkman/bin/sdkman-init.sh
+
+  sdk install java
+  sdk install java 17.0.10-oracle
 fi
 
 # Change user shell
