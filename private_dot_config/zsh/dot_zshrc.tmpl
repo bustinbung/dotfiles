@@ -120,12 +120,17 @@ n ()
     }
 }
 
+# sdkman
+{{- if eq .chezmoi.os "linux" }}
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+{{- else if eq .chezmoi.os "darwin" }}
+export SDKMAN_DIR=$(brew --prefix sdkman-cli)/libexec
+[[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
+{{- end }}
+
 {{- if eq .chezmoi.os "darwin" }}
 # fzf
 source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
 source "/opt/homebrew/opt/fzf/shell/completion.zsh"
-
-# sdkman
-export SDKMAN_DIR=$(brew --prefix sdkman-cli)/libexec
-[[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
 {{- end }}
