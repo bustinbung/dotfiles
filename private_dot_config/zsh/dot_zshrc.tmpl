@@ -41,6 +41,7 @@ alias cs='source $ZDOTDIR/.zshrc'
 alias lg='lazygit'
 alias cm='chezmoi'
 
+{{ if eq .chezmoi.os "linux" }}
 # Arch
 alias sps='sudo pacman -S'
 alias spsu='sudo pacman -Syu'
@@ -49,6 +50,23 @@ alias sprs='sudo pacman -Rs'
 alias spq='sudo pacman -Q'
 alias spqi='sudo pacman -Qi'
 alias spqt='sudo pacman -Qet'
+{{ end }}
+
+{{ if eq .chezmoi.os "darwin" }}
+function bi() {
+    if brew install $@; then
+        echo Dumping Brewfile...
+        brew bundle dump -f --file=$HOME/.local/share/chezmoi/Brewfile
+    fi
+}
+
+function br() {
+    if brew remove $@; then
+        echo Dumping Brewfile...
+        brew bundle dump -f --file=$HOME/.local/share/chezmoi/Brewfile
+    fi
+}
+{{ end }}
 
 # Zellij
 alias z='zellij'
