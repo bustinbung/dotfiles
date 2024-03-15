@@ -66,6 +66,13 @@ function br() {
         brew bundle dump -f --file=$HOME/.local/share/chezmoi/Brewfile
     fi
 }
+
+function bu() {
+    if brew upgrade; then
+        echo Dumping Brewfile...
+        brew bundle dump -f --file=$HOME/.local/share/chezmoi/Brewfile
+    fi
+}
 {{ end }}
 
 # Zellij
