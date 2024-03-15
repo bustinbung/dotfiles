@@ -17,16 +17,15 @@ yabai -m config     \
     external_bar    all:0:$EXTERNAL_BAR    \
     mouse_follows_focus off \
     focus_follows_mouse autofocus   \
-    window_origin_display   default \
     window_placement    second_child    \
     window_zoom_persist on  \
-    window_shadow   off \
-    window_opacity  off \
-    window_opacity_duration 0.0 \
+    window_shadow   on \
+    window_opacity  on \
+    window_opacity_duration 0.25 \
     active_window_opacity   1.0 \
-    normal_window_opacity   1.0 \
-    window_animation_duration   0.0 \
-    window_animation_frame_rate 120 \
+    normal_window_opacity   0.9 \
+    window_animation_duration   0.25 \
+    window_animation_easing ease_in_out_quad    \
     insert_feedback_color   0xff000000  \
     split_ratio 0.5 \
     split_type  auto    \
@@ -44,15 +43,15 @@ yabai -m config     \
     window_gap  $PADDING
 
 # space 1: general
-yabai -m rule --add app="Thunderbird" space=^1
-yabai -m rule --add app="Messages"    space=^1
-yabai -m rule --add app="Calendar"    space=^1
+yabai -m rule --add app="Thunderbird" space=1
+yabai -m rule --add app="Messages"    space=1
+yabai -m rule --add app="Calendar"    space=1
 yabai -m space 1 --layout stack
 
 # space 2: development
-yabai -m rule --add app="Visual Studio Code"  space=^2
-yabai -m rule --add app="Emacs"               space=^2
-yabai -m rule --add app="Alacritty"           space=^2
+yabai -m rule --add app="Visual Studio Code"  space=2
+yabai -m rule --add app="Emacs"               space=2
+yabai -m rule --add app="Alacritty"           space=2
 yabai -m space 2 --layout bsp
 
 # float apps
