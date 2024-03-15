@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 {{ if eq .chezmoi.os "linux" -}}
 # Install arch packages
-sudo pacman -S --noconfirm --needed neovim alacritty zsh zoxide starship emacs-nativecomp ripgrep fd ttf-jetbrains-mono ttf-jetbrains-mono-nerd nnn lazygit tree-sitter xclip htop nextcloud-client zellij maven libreoffice-still
+sudo pacman -S --noconfirm --needed neovim alacritty zsh zoxide starship emacs-nativecomp ripgrep fd ttf-jetbrains-mono ttf-jetbrains-mono-nerd nnn lazygit tree-sitter xclip htop nextcloud-client zellij maven libreoffice-still network-manager-applet
 
 # Install AUR packages
-yay -S --noconfirm --needed brave-bin zsh-antidote 1password 1password-cli apple-fonts
+yay -S --noconfirm --needed brave-bin zsh-antidote 1password 1password-cli apple-fonts proton-vpn-gtk-app
 
 # Fix suspend issues
 if [ ! -e /etc/tmpfiles.d/fix-suspend.conf ] ; then
