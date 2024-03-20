@@ -1,11 +1,13 @@
 README.md
 
-# Linux only
-{{- if ne .chezmoi.os "linux" }}
+# Arch Linux only
+{{- if ( and (ne .chezmoi.os "linux") (ne .chezmoi.idLike "arch")) }}
+run_onchange_arch-linux-install.sh
 {{- end }}
 
 # MacOS only
 {{- if ne .chezmoi.os "darwin" }}
+run_onchange_macos-install.sh
 .config/sketchybar/
 .config/skhd/
 .config/yabai/

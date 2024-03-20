@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
-{{ if eq .chezmoi.os "linux" -}}
 # Install arch packages
-sudo pacman -S --noconfirm --needed neovim alacritty zsh zoxide starship emacs-nativecomp ripgrep fd ttf-jetbrains-mono ttf-jetbrains-mono-nerd nnn lazygit tree-sitter xclip htop nextcloud-client zellij maven libreoffice-still network-manager-applet gnome-shell-extension-appindicator
+sudo pacman -S --noconfirm --needed - < arch-pkglist
 
 # Install AUR packages
-yay -S --noconfirm --needed brave-bin zsh-antidote 1password 1password-cli apple-fonts proton-vpn-gtk-app
+yay -S --noconfirm --needed - < aur-pkglist
 
 # Fix suspend issues
 if [ ! -e /etc/tmpfiles.d/fix-suspend.conf ] ; then
@@ -16,11 +15,6 @@ sudo systemctl enable nvidia-{suspend,hibernate,resume}
 if [ ! -d $HOME/.config/emacs ] ; then
   git clone --depth 1 git@github.com:doomemacs/doomemacs $HOME/.config/emacs
   $HOME/.config/emacs/bin/doom install --force --config --env --install --fonts
-fi
-
-# Install neovim configuration
-if [ ! -d $HOME/.config/nvim ] ; then
-  git clone git@github.com:bustinbung/kickstart.nvim.git $HOME/.config/nvim
 fi
 
 # Install SDKMAN
@@ -36,9 +30,3 @@ fi
 if [ ! $SHELL = $(which zsh) ] ; then
   sudo chsh -s $(which zsh) $(whoami)
 fi
-{{ end }}
-
-{{ if eq .chezmoi.os "darwin" -}}
-# Install packages
-brew bundle install --no-lock --file=~/.local/share/chezmoi/Brewfile
-{{ end }}
