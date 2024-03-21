@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 # Install arch packages
 sudo pacman -S --noconfirm --needed - < arch-pkglist
 
