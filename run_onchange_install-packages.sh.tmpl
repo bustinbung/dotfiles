@@ -3,5 +3,5 @@
 {{ if ( and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.idLike "arch")) -}}
 {{ include "packages/arch-linux-install.sh" -}}
 {{ else if eq .chezmoi.os "darwin" -}}
-{{ include "packages/macos-linux-install.sh" -}}
+{{ include "packages/macos-install.sh" -}}
 {{ end -}}
