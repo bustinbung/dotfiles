@@ -1,7 +1,7 @@
 README.md
 
 # Arch Linux only
-{{- if ( and (ne .chezmoi.os "linux") (ne .chezmoi.idLike "arch")) }}
+{{- if ne .chezmoi.os "linux" }}
 {{- end }}
 
 # MacOS only
