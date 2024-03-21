@@ -1,8 +1,10 @@
 # Install arch packages
 sudo pacman -S --noconfirm --needed - < arch-pkglist
+sudo pacman -S --noconfirm --needed - < $HOME/.local/share/chezmoi/packages/arch-pkglist
 
 # Install AUR packages
 yay -S --noconfirm --needed - < aur-pkglist
+yay -S --noconfirm --needed - < $HOME/.local/share/chezmoi/packages/aur-pkglist
 
 # Fix suspend issues
 if [ ! -e /etc/tmpfiles.d/fix-suspend.conf ] ; then
