@@ -1,0 +1,41 @@
+;; ----- KMonad config for 100% Dvorak layout -----
+
+;; ----- Basic configuration options -----
+(defcfg
+  input (device-file "/dev/input/by-id/usb-Wooting_WootingTwo_A01B1927W021H00325-if03-event-kbd")
+  output (uinput-sink "KMonad")
+
+  ;; Important (lol)
+  fallthrough true
+)
+
+;; ----- Dvorak layout -----
+(deflayer dvorak-standard
+  _    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    [    ]    _     _    _    _     _    _    _    _
+  _    '    ,    .    p    y    f    g    c    r    l    /    =    \     _    _    _     _    _    _    _
+  _    a    o    e    u    i    d    h    t    n    s    -    _                          _    _    _
+  _    ;    q    j    k    x    b    @rs  w    v    z    _                    _          _    _    _    _
+  _    _    _              _              _    _    _    _               _    _    _     _    _
+)
+
+;; ----- Raise -----
+(defalias rs (tap-hold 150 m (layer-toggle raise)))
+(deflayer raise
+  _    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+  _    1    2    3    4    5    6    7    8    9    0    _    _    _     _    _    _     _    _    _    _
+  _    _    _    _    _    _    left down up   rght _    _    _                          _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _                    _          _    _    _    _
+  _    _    _              _              _    _    _    _               _    _    _     _    _
+)
+
+(defsrc
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12        ssrq slck pause
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc  ins  home pgup  nlck kp/  kp*  kp-
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \     del  end  pgdn  kp7  kp8  kp9  kp+
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret                        kp4  kp5  kp6
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft                 up         kp1  kp2  kp3  kprt
+  lctl lmet lalt           spc            ralt rmet cmp  rctl            left down rght  kp0  kp.
+)
+
