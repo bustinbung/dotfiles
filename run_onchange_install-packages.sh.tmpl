@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 {{ if ( and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.idLike "arch")) -}}
-{{ include "packages/arch-linux-install.sh" -}}
+{{ include "scripts/arch-linux-install.sh" -}}
 {{ else if eq .chezmoi.os "darwin" -}}
-{{ include "packages/macos-install.sh" -}}
+{{ include "scripts/macos-install.sh" -}}
 {{ end -}}
