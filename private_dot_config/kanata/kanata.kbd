@@ -19,7 +19,7 @@
   esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12        prnt slck pause
   @grl 1    2    3    4    5    6    7    8    9    0    [    ]    bspc  ins  home pgup  nlck kp/  kp*  kp-
   tab  '    ,    .    p    y    f    g    c    r    l    /    =    \     del  end  pgdn  kp7  kp8  kp9  kp+
-  caps @a   @o   @e   @u   i    d    @h   @t   @n   @s   -    ret                        kp4  kp5  kp6
+  @cap @a   @o   @e   @u   i    d    @h   @t   @n   @s   -    ret                        kp4  kp5  kp6
   lsft ;    q    @jlo k    x    b    @mrs w    v    z    rsft                 up         kp1  kp2  kp3  kprt
   lctl lmet lalt           spc            ralt rmet cmp  rctl            left down rght  kp0  kp.
 )
@@ -36,13 +36,16 @@
 ;; ----- Aliases -----
 (defalias
   ;; tap: backtick (`), hold: layer-switch toggle
-  grl (tap-hold 200 200 grv (layer-toggle layers))
+  grl (tap-hold $tap-time $hold-time grv (layer-toggle layers))
+
+  ;; tap: caps-word, hold: caps
+  cap (tap-hold $tap-time $hold-time (caps-word 2000) caps)
 
   ;; tap: j, hold: lower layer
-  jlo (tap-hold 200 200 j (layer-toggle lower))
+  jlo (tap-hold $tap-time $hold-time j (layer-toggle lower))
 
   ;; tap: m, hold: raise layer
-  mrs (tap-hold 200 200 m (layer-toggle raise))
+  mrs (tap-hold $tap-time $hold-time m (layer-toggle raise))
 )
 
 ;; ----- Homerow mods ------
