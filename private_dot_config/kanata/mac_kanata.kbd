@@ -33,24 +33,35 @@
 )
 
 ;; ----- Aliases -----
+(defvar
+  layer-tap-time 210
+  layer-hold-time 110
+)
 (defalias
   ;; tap: backtick (`), hold: layer-switch toggle
-  grl (tap-hold $tap-time $hold-time grv (layer-toggle layers))
+  grl (tap-hold $layer-tap-time $layer-hold-time grv (layer-toggle layers))
 
   ;; tap: caps-word, hold: caps
-  cap (tap-hold $tap-time $hold-time (caps-word 2000) caps)
+  cap (tap-hold $layer-tap-time $layer-hold-time (caps-word 2000) caps)
 
   ;; tap: j, hold: lower layer
-  jlo (tap-hold $tap-time $hold-time j (layer-toggle lower))
+  jlo (tap-hold $layer-tap-time $layer-hold-time j (layer-toggle lower))
 
   ;; tap: m, hold: raise layer
-  mrs (tap-hold $tap-time $hold-time m (layer-toggle raise))
+  mrs (tap-hold $layer-tap-time $layer-hold-time m (layer-toggle raise))
 )
 
 ;; ----- Homerow mods ------
 (defvar
-  tap-time 200
-  hold-time 150
+  ctl-tap 200
+  alt-tap 200
+  sft-tap 200
+  met-tap 200
+
+  ctl-hold 150
+  alt-hold 150
+  sft-hold 115
+  met-hold 150
 
   lh-keys (
     q w e r t
@@ -73,14 +84,14 @@
     (on-idle-fakekey to-base tap 20)
   )
 
-  a (tap-hold-release-keys $tap-time $hold-time (multi a @tap) lctl $lh-keys)
-  o (tap-hold-release-keys $tap-time $hold-time (multi o @tap) lalt $lh-keys)
-  e (tap-hold-release-keys $tap-time $hold-time (multi e @tap) lsft $lh-keys)
-  u (tap-hold-release-keys $tap-time $hold-time (multi u @tap) lmet $lh-keys)
-  h (tap-hold-release-keys $tap-time $hold-time (multi h @tap) rmet $rh-keys)
-  t (tap-hold-release-keys $tap-time $hold-time (multi t @tap) rsft $rh-keys)
-  n (tap-hold-release-keys $tap-time $hold-time (multi n @tap) ralt $rh-keys)
-  s (tap-hold-release-keys $tap-time $hold-time (multi s @tap) rctl $rh-keys)
+  a (tap-hold-release-keys $ctl-tap $ctl-hold (multi a @tap) lctl $lh-keys)
+  o (tap-hold-release-keys $alt-tap $alt-hold (multi o @tap) lalt $lh-keys)
+  e (tap-hold-release-keys $sft-tap $sft-hold (multi e @tap) lsft $lh-keys)
+  u (tap-hold-release-keys $met-tap $met-hold (multi u @tap) lmet $lh-keys)
+  h (tap-hold-release-keys $met-tap $met-hold (multi h @tap) rmet $rh-keys)
+  t (tap-hold-release-keys $sft-tap $sft-hold (multi t @tap) rsft $rh-keys)
+  n (tap-hold-release-keys $alt-tap $alt-hold (multi n @tap) ralt $rh-keys)
+  s (tap-hold-release-keys $ctl-tap $ctl-hold (multi s @tap) rctl $rh-keys)
 )
 
 ;; ----- Raise -----
