@@ -39,16 +39,16 @@
 )
 (defalias
   ;; tap: backtick (`), hold: layer-switch toggle
-  grl (tap-hold $layer-tap-time $layer-hold-time grv (layer-toggle layers))
+  grl (tap-hold-release $layer-tap-time $layer-hold-time grv (layer-toggle layers))
 
   ;; tap: caps-word, hold: caps
-  cap (tap-hold $layer-tap-time $layer-hold-time (caps-word 2000) caps)
+  cap (tap-hold-release $layer-tap-time $layer-hold-time (caps-word 2000) caps)
 
   ;; tap: j, hold: lower layer
-  jlo (tap-hold $layer-tap-time $layer-hold-time j (layer-toggle lower))
+  jlo (tap-hold-release $layer-tap-time $layer-hold-time j (layer-toggle lower))
 
   ;; tap: m, hold: raise layer
-  mrs (tap-hold $layer-tap-time $layer-hold-time m (layer-toggle raise))
+  mrs (tap-hold-release $layer-tap-time $layer-hold-time m (layer-toggle raise))
 )
 
 ;; ----- Homerow mods ------
@@ -60,7 +60,7 @@
 
   ctl-hold 150
   alt-hold 150
-  sft-hold 115
+  sft-hold 120
   met-hold 150
 
   lh-keys (
