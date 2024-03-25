@@ -53,15 +53,15 @@
   hold-time 150
 
   lh-keys (
-    ' , . p y
-    a o e u i
-    ; q j k x
+    q w e r t
+    a s d f g
+    z x c v b
   )
 
   rh-keys (
-    f g c r l
-    d h t n s
-    b m w v z
+    y u i o p
+    h j k l ;
+    n m , . /
   )
 )
 (deffakekeys
