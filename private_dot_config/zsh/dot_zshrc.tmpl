@@ -146,7 +146,6 @@ n ()
 
 # zellij auto-attach
 if [[ "$TERM_PROGRAM" != "vscode" ]]; then
-    ZELLIJ_AUTO_ATTACH="true"
     ZELLIJ_AUTO_EXIT="true"
     eval "$(zellij setup --generate-auto-start zsh)"
 fi
