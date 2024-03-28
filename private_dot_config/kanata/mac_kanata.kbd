@@ -15,12 +15,12 @@
 
 ;; ----- Dvorak -----
 (deflayer dvorak
-  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  esc  brdn brup f3   f4   f5   f6   prev pp   next mute vold volu
   @grl 1    2    3    4    5    6    7    8    9    0    [    ]    bspc
   tab  '    ,    .    p    y    f    g    c    r    l    /    =    \
   @cap @a   @o   @e   @u   i    d    @h   @t   @n   @s    -    ret
   lsft ;    q    @jlo k    x    b    @mrs w    v    z    rsft      up
-  fn   lctl lalt lmet      spc            rmet ralt           left down rght
+  fn   lctl lalt lmet      @sar           bspc ralt           left down rght
 )
 
 (deflayer dvorak-nomod
@@ -32,10 +32,49 @@
   fn   lctl lalt lmet      spc            rmet ralt           left down rght
 )
 
+(deflayer dvorak-clean
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  @grl 1    2    3    4    5    6    7    8    9    0    [    ]    bspc
+  tab  '    ,    .    p    y    f    g    c    r    l    /    =    \
+  caps a    o    e    u    i    d    h    t    n    s    -    ret
+  lsft ;    q    j    k    x    b    m    w    v    z    rsft      up
+  fn   lctl lalt lmet      spc            rmet ralt           left down rght
+)
+
+;; ----- Raise -----
+(deflayer raise
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    1    2    3    4    5    _    _    _    _    _    _    _    _
+  _    6    7    8    9    0    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _         _
+  _    _    _    _         _              _    _              _    _    _
+)
+
+;; ----- Lower -----
+(deflayer lower
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    S-1  S-2  S-3  S-4  S-5  _    _    _    _    _    _    _    _
+  _    S-6  S-7  S-8  S-9  S-0  _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _         _
+  _    _    _    _         _              del  _              _    _    _
+)
+
+;; ----- Arrows ------
+(deflayer arrows
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    left down up   rght _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _         _
+  _    _    _    _         _              _    _              _    _    _
+)
+
 ;; ----- Aliases -----
 (defvar
-  layer-tap-time 210
-  layer-hold-time 120
+  layer-tap-time 200
+  layer-hold-time 150
 )
 (defalias
   ;; tap: backtick (`), hold: layer-switch toggle
@@ -49,6 +88,9 @@
 
   ;; tap: m, hold: raise layer
   mrs (tap-hold-release $layer-tap-time $layer-hold-time m (layer-toggle raise))
+
+  ;; tap: spc, hold: arrow layer
+  sar (tap-hold-release $layer-tap-time $layer-hold-time spc (layer-toggle arrows))
 )
 
 ;; ----- Homerow mods ------
@@ -58,7 +100,7 @@
   sft-tap 200
   met-tap 200
 
-  ctl-hold 150
+  ctl-hold 160
   alt-hold 150
   sft-hold 120
   met-hold 150
@@ -94,35 +136,6 @@
   s (tap-hold-release-keys $ctl-tap $ctl-hold (multi s @tap) rctl $rh-keys)
 )
 
-;; ----- Raise -----
-(deflayer raise
-  _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    1    2    3    4    5    _    _    _    _    _    _    _    _
-  _    6    7    8    9    0    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _         _
-  _    _    _    _         _              _    _              _    _    _
-)
-
-;; ----- Lower -----
-(deflayer lower
-  _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    S-1  S-2  S-3  S-4  S-5  _    _    _    _    _    _    _    _
-  _    S-6  S-7  S-8  S-9  S-0  left down up rght   _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _         _
-  _    _    _    _         _              _    _              _    _    _
-)
-
-;; ----- Clean dvorak -----
-(deflayer dvorak-clean
-  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
-  @grl 1    2    3    4    5    6    7    8    9    0    [    ]    bspc
-  tab  '    ,    .    p    y    f    g    c    r    l    /    =    \
-  caps a    o    e    u    i    d    h    t    n    s    -    ret
-  lsft ;    q    j    k    x    b    m    w    v    z    rsft      up
-  fn   lctl lalt lmet      spc            rmet ralt           left down rght
-)
 
 ;; ----- Layers -----
 (defalias
