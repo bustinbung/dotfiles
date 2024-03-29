@@ -102,7 +102,7 @@
 (defvar
   ;; Set tap/hold time for layer tap-hold
   layer-tap-time 200
-  layer-hold-time 150
+  layer-hold-time 160
 
   ;; Set tap/hold time for space tap-hold
   spc-tap-time 200
