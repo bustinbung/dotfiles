@@ -119,9 +119,9 @@
   met-tap 200
 
   ctl-hold 150
-  alt-hold 150
+  alt-hold 160
   sft-hold 120
-  met-hold 160
+  met-hold 170
 
   ;; Define left and right hand keys for high-speed typing
   lh-keys (
