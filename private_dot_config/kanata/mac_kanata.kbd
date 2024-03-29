@@ -1,9 +1,14 @@
-;; ----- Configuration -----
+#| *************
+   Configuration
+   ************* |#
 (defcfg
+  ;; Allow kanata to process keys even if not defined
   process-unmapped-keys yes
 )
 
-;; ----- Source -----
+#| ******
+   Source
+   ****** |#
 (defsrc
   esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
@@ -13,14 +18,16 @@
   fn   lctl lalt lmet      spc            rmet ralt           left down rght
 )
 
-;; ----- Dvorak -----
+#| *************
+   Dvorak layers
+   ************* |#
 (deflayer dvorak
   esc  brdn brup f3   f4   f5   f6   prev pp   next mute vold volu
   @grl 1    2    3    4    5    6    7    8    9    0    [    ]    bspc
   tab  '    ,    .    p    y    f    g    c    r    l    /    =    \
   @cap @a   @o   @e   @u   i    d    @h   @t   @n   @s    -    ret
   lsft ;    q    @jlo k    x    b    @mrs w    v    z    rsft      up
-  fn   lctl lalt lmet      @sar           bspc ralt           left down rght
+  fn   lctl lalt lmet      @slr           bspc ralt           left down rght
 )
 
 (deflayer dvorak-nomod
@@ -41,7 +48,9 @@
   fn   lctl lalt lmet      spc            rmet ralt           left down rght
 )
 
-;; ----- Raise -----
+#| *****
+   Raise
+   ***** |#
 (deflayer raise
   _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
@@ -51,7 +60,9 @@
   _    _    _    _         _              _    _              _    _    _
 )
 
-;; ----- Lower -----
+#| *****
+   Lower
+   ***** |#
 (deflayer lower
   _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
@@ -61,8 +72,10 @@
   _    _    _    _         _              del  _              _    _    _
 )
 
-;; ----- Arrows ------
-(deflayer arrows
+#| ***********
+   Space layer
+   *********** |#
+(deflayer space
   _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
@@ -71,30 +84,31 @@
   _    _    _    _         _              _    _              _    _    _
 )
 
-;; ----- Aliases -----
+#| ************
+   Layer switch
+   ************ |#
+(deflayer layers
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    lrld @dfd @cld _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _         _
+  _    _    _    _         _              _    _              _    _    _
+)
+
+#| *********
+   Variables
+   ********* |#
 (defvar
+  ;; Set tap/hold time for layer tap-hold
   layer-tap-time 200
   layer-hold-time 150
-)
-(defalias
-  ;; tap: backtick (`), hold: layer-switch toggle
-  grl (tap-hold-release $layer-tap-time $layer-hold-time grv (layer-toggle layers))
 
-  ;; tap: caps-word, hold: caps
-  cap (tap-hold-release $layer-tap-time $layer-hold-time (caps-word 2000) caps)
+  ;; Set tap/hold time for space tap-hold
+  spc-tap-time 200
+  spc-hold-time 200
 
-  ;; tap: j, hold: lower layer
-  jlo (tap-hold-release $layer-tap-time $layer-hold-time j (layer-toggle lower))
-
-  ;; tap: m, hold: raise layer
-  mrs (tap-hold-release $layer-tap-time $layer-hold-time m (layer-toggle raise))
-
-  ;; tap: spc, hold: arrow layer
-  sar (tap-hold-release $layer-tap-time $layer-hold-time spc (layer-toggle arrows))
-)
-
-;; ----- Homerow mods ------
-(defvar
+  ;; Set tap/hold time for homerow mods
   ctl-tap 200
   alt-tap 200
   sft-tap 200
@@ -105,6 +119,7 @@
   sft-hold 120
   met-hold 150
 
+  ;; Define left and right hand keys for high-speed typing
   lh-keys (
     q w e r t
     a s d f g
@@ -117,10 +132,31 @@
     n m , . /
   )
 )
-(deffakekeys
-  to-base (layer-switch dvorak)
-)
+
+#| *******
+   Aliases
+   ******* |#
 (defalias
+  ;; tap: backtick (`), hold: layer-switch toggle
+  grl (tap-hold $layer-tap-time $layer-hold-time grv (layer-toggle layers))
+
+  ;; tap: caps-word, hold: caps
+  cap (tap-hold $layer-tap-time $layer-hold-time (caps-word 2000) caps)
+
+  ;; tap: j, hold: lower layer
+  jlo (tap-hold $layer-tap-time $layer-hold-time j (layer-toggle lower))
+
+  ;; tap: m, hold: raise layer
+  mrs (tap-hold $layer-tap-time $layer-hold-time m (layer-toggle raise))
+
+  ;; tap: space, hold: space layer
+  slr (tap-hold-release $spc-tap-time $spc-hold-time spc (layer-toggle space))
+
+  ;; For layer switching
+  dfd (layer-switch dvorak)
+  cld (layer-switch dvorak-clean)
+
+  ;; Homerow mods
   tap (multi
     (layer-switch dvorak-nomod)
     (on-idle-fakekey to-base tap 20)
@@ -136,19 +172,8 @@
   s (tap-hold-release-keys $ctl-tap $ctl-hold (multi s @tap) rctl $rh-keys)
 )
 
-
-;; ----- Layers -----
-(defalias
-  dfd (layer-switch dvorak)
-  cld (layer-switch dvorak-clean)
-)
-(deflayer layers
-  _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    lrld @dfd @cld _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _         _
-  _    _    _    _         _              _    _              _    _    _
+(deffakekeys
+  to-base (layer-switch dvorak)
 )
 
 #|
