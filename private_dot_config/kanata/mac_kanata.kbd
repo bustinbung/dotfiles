@@ -114,8 +114,8 @@
   sft-tap 200
   met-tap 200
 
-  ctl-hold 160
-  alt-hold 150
+  ctl-hold 170
+  alt-hold 160
   sft-hold 120
   met-hold 150
 
