@@ -1,3 +1,11 @@
+# Load antidote first
+{{- if eq .chezmoi.os "darwin" }}
+source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
+{{- else if eq .chezmoi.os "linux" }}
+source /usr/share/zsh-antidote/antidote.zsh
+{{- end }}
+antidote load ${ZDOTDIR}/.zsh_plugins
+
 ### Settings ###
 # Ignore comment lines (#)
 setopt interactivecomments
@@ -11,8 +19,8 @@ zle -N edit-command-line
 bindkey '^x^e' edit-command-line
 
 # zsh-history-substring-search config
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
 
 
 ### Aliases ###
@@ -97,14 +105,6 @@ function fif() {
 
 
 ### Tools ###
-# antidote
-{{- if eq .chezmoi.os "darwin" }}
-source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
-{{- else if eq .chezmoi.os "linux" }}
-source /usr/share/zsh-antidote/antidote.zsh
-{{- end }}
-antidote load ${ZDOTDIR}/.zsh_plugins
-
 # zoxide
 eval "$(zoxide init --cmd cd zsh)"
 
