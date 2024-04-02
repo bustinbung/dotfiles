@@ -120,7 +120,7 @@
 
   ctl-hold 150
   alt-hold 160
-  sft-hold 120
+  sft-hold 125
   met-hold 170
 
   ;; Define left and right hand keys for high-speed typing
