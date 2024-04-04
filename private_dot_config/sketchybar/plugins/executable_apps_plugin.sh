@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 source "$CONFIG_DIR/plugins/icon_map.sh"
+source "$CONFIG_DIR/colors.sh"
 
 mouse() {
     if [[ "$SENDER" == "mouse.entered" ]]; then
@@ -30,6 +31,12 @@ update() {
             app+=(label="$APP_NAME")
         else
             app+=(label="$APP_NAME / $APP_TITLE")
+        fi
+
+        if $(jq '."is-floating"' <<< "$APP"); then
+            app+=(background.border_color="$SPACE_NATIVE_FULLSCREEN")
+        else
+            app+=(background.border_color="0x00ffffff")
         fi
     else
         app=(
