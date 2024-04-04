@@ -2,12 +2,10 @@
 
 # source colors, icons, and icon map plugin
 source "$CONFIG_DIR/colors.sh"
-
-PLUGIN_DIR="$CONFIG_DIR/plugins"
-source "$PLUGIN_DIR/icon_map.sh"
+source "$CONFIG_DIR/plugins/icon_map.sh"
 
 # set app icon font
-APP_FONT="app-font:Regular:12.0"
+APP_FONT="sketchybar-app-font:Regular:12.0"
 
 # switch to space if clicked
 mouse_clicked() {
@@ -64,7 +62,8 @@ space_windows_change() {
 
         # get app name and icon
         APP_NAME=$(jq '.app' <<< "$CURRENT_APP" | tr -d '"')
-        APP_ICON=$(icon_map "$APP_NAME")
+        __icon_map "${APP_NAME}"
+        APP_ICON="${icon_result}"
 
         # append icon to label
         LABEL+="$APP_ICON"
