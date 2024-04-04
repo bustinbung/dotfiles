@@ -27,7 +27,7 @@
   tab  '    ,    .    p    y    f    g    c    r    l    /    =    \
   @cap @a   @o   @e   @u   i    d    @h   @t   @n   @s    -    ret
   lsft ;    q    @jlo k    x    b    @mrs w    v    z    rsft      up
-  fn   lctl lalt lmet      @slr           bspc ralt           left down rght
+  @fn  lctl lalt lmet      @slr           del  ralt           left down rght
 )
 
 (deflayer dvorak-nomod
@@ -45,7 +45,7 @@
   tab  '    ,    .    p    y    f    g    c    r    l    /    =    \
   caps a    o    e    u    i    d    h    t    n    s    -    ret
   lsft ;    q    j    k    x    b    m    w    v    z    rsft      up
-  fn   lctl lalt lmet      spc            rmet ralt           left down rght
+  @fn  lctl lalt lmet      spc            rmet ralt           left down rght
 )
 
 #| *****
@@ -69,7 +69,7 @@
   _    S-1  S-2  S-3  S-4  S-5  _    _    _    _    _    _    _    _
   _    S-6  S-7  S-8  S-9  S-0  _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _         _
-  _    _    _    _         _              del  _              _    _    _
+  _    _    _    _         _              _    _              _    _    _
 )
 
 #| ***********
@@ -90,6 +90,18 @@
 (deflayer layers
   _    _    _    _    _    _    _    _    _    _    _    _    _
   _    lrld @dfd @cld _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _         _
+  _    _    _    _         _              _    _              _    _    _
+)
+
+#| *************
+   Function keys
+   ************* |#
+(deflayer function
+  _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _         _
@@ -155,6 +167,9 @@
   ;; For layer switching
   dfd (layer-switch dvorak)
   cld (layer-switch dvorak-clean)
+
+  ;; Fix function key
+  fn (multi (layer-toggle function) fn)
 
   ;; Homerow mods
   tap (multi
