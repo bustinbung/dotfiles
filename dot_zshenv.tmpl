@@ -8,13 +8,15 @@ path=(
 
     # emacs
     $HOME/.config/emacs/bin
-    {{- if eq .chezmoi.os "darwin" }}
+    
     #fzf
     /opt/homebrew/opt/fzf/bin
-    {{- end }}
 
     # spicetify
     $HOME/.spicetify
+
+    # cargo
+    $HOME/.cargo/bin
 
     $path
 )
