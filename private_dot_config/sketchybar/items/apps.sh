@@ -25,4 +25,5 @@ sketchybar --add item  app left                 \
            --set       app "${app[@]}"          \
            --subscribe app front_app_switched   \
                            mouse.entered        \
-                           mouse.exited
+                           mouse.exited         \
+                           app_update

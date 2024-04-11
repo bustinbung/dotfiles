@@ -39,7 +39,7 @@ cmd + alt - l : yabai -m window --swap east
 shift + alt - 0 : yabai -m space --balance
 
 # Toggle window float
-alt - space : yabai -m window --toggle float
+alt - space : yabai -m window --toggle float && sketchybar --trigger app_update
 
 # Make floating window fill screen
 alt - m : yabai -m window --grid 1:1:0:0:1:1
