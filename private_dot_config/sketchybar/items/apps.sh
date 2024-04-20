@@ -10,7 +10,7 @@ app=(
 
     padding_left=0
 
-    label.max_chars=22
+    label.max_chars=25
 
     icon.padding_right=0
 
