@@ -23,6 +23,7 @@ app=(
 
 sketchybar --add item  app left                 \
            --set       app "${app[@]}"          \
+           --add event app_update               \
            --subscribe app front_app_switched   \
                            mouse.entered        \
                            mouse.exited         \
