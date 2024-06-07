@@ -1,0 +1,201 @@
+#| *************
+   Configuration
+   ************* |#
+(defcfg
+  ;; Allow kanata to process keys even if not defined
+  process-unmapped-keys yes
+)
+
+#| ******
+   Source
+   ****** |#
+(defsrc
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12             slck pause
+  grv  1    2    3    4    5    6    7    8    9    0    [    ]    bspc  ins  home pgup  nlck kp/  kp*  kp-
+  tab  '    ,    .    p    y    f    g    c    r    l    /    =    \     del  end  pgdn  kp7  kp8  kp9  kp+
+  caps a    o    e    u    i    d    h    t    n    s    -    ret                        kp4  kp5  kp6
+  lsft ;    q    j    k    x    b    m    w    v    z    rsft                 up         kp1  kp2  kp3  kprt
+  lctl lmet lalt           spc            ralt rmet cmp  rctl            left down rght  kp0  kp.
+)
+
+#| *************
+   Dvorak layers
+   ************* |#
+(deflayer dvorak
+  esc  brdn brup f3   f4   f5   f6   prev pp   next mute vold volu            slck pause
+  @grl 1    2    3    4    5    6    7    8    9    0    [    ]    bspc  ins  home pgup  nlck kp/  kp*  kp-
+  tab  '    ,    .    p    y    f    g    c    r    l    /    =    \     del  end  pgdn  kp7  kp8  kp9  kp+
+  @cap @a   @o   @e   @u   i    d    @h   @t   @n   @s   -    ret                        kp4  kp5  kp6
+  lsft ;    q    @jlo k    x    b    @mrs w    v    z    rsft                 up         kp1  kp2  kp3  kprt
+  lctl lalt lmet           @slr           del  rmet cmp  rctl            left down rght  kp0  kp.
+)
+
+(deflayer dvorak-nomod
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12             slck pause
+  @grl 1    2    3    4    5    6    7    8    9    0    [    ]    bspc  ins  home pgup  nlck kp/  kp*  kp-
+  tab  '    ,    .    p    y    f    g    c    r    l    /    =    \     del  end  pgdn  kp7  kp8  kp9  kp+
+  @cap a    o    e    u    i    d    h    t    n    s    -    ret                        kp4  kp5  kp6
+  lsft ;    q    @jlo k    x    b    @mrs w    v    z    rsft                 up         kp1  kp2  kp3  kprt
+  lctl lalt lmet           spc            ralt rmet cmp  rctl            left down rght  kp0  kp.
+)
+
+(deflayer dvorak-clean
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12             slck pause
+  @grl 1    2    3    4    5    6    7    8    9    0    [    ]    bspc  ins  home pgup  nlck kp/  kp*  kp-
+  tab  '    ,    .    p    y    f    g    c    r    l    /    =    \     del  end  pgdn  kp7  kp8  kp9  kp+
+  caps a    o    e    u    i    d    h    t    n    s    -    ret                        kp4  kp5  kp6
+  lsft ;    q    j    k    x    b    m    w    v    z    rsft                 up         kp1  kp2  kp3  kprt
+  lctl lalt lmet           spc            ralt rmet cmp  rctl            left down rght  kp0  kp.
+)
+
+#| *************
+   QWERTY layers
+   ************* |#
+(deflayer qwerty-clean
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12             slck pause
+  @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc  ins  home pgup  nlck kp/  kp*  kp-
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \     del  end  pgdn  kp7  kp8  kp9  kp+
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret                        kp4  kp5  kp6
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft                 up         kp1  kp2  kp3  kprt
+  lctl lalt lmet           spc            ralt rmet cmp  rctl            left down rght  kp0  kp.
+)
+
+#| *****
+   Raise
+   ***** |#
+(deflayer raise
+  _    _    _    _    _    _    _    _    _    _    _    _    _               _    _
+  _    6    7    8    9    0    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+  _    1    2    3    4    5    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _                          _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _                    _          _    _    _    _
+  _    _    _              _              _    _    _    _               _    _    _     _    _
+)
+
+#| *****
+   Lower
+   ***** |#
+(deflayer lower
+  _    _    _    _    _    _    _    _    _    _    _    _    _               _    _
+  _    S-6  S-7  S-8  S-9  S-0  _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+  _    S-1  S-2  S-3  S-4  S-5  _    [    ]    _    _    _    _    _     _    _    _     _    _    _    _
+  _    _    _    _    _    _    _    S-[  S-]  _    _    _    _                          _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _                    _          _    _    _    _
+  _    _    _              _              _    _    _    _               _    _    _     _    _
+)
+
+#| ***********
+   Space layer
+   *********** |#
+(deflayer space
+  _    _    _    _    _    _    _    _    _    _    _    _    _               _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+  _    _    _    _    _    _    _    C-v  C-c  C-x  _    _    _    _     _    _    _     _    _    _    _
+  _    _    _    _    _    _    left down up   rght _    _    _                          _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _                    _          _    _    _    _
+  _    _    _              _              _    _    _    _               _    _    _     _    _
+)
+
+#| ************
+   Layer switch
+   ************ |#
+(deflayer layers
+  _    _    _    _    _    _    _    _    _    _    _    _    _               _    _
+  _    lrld @dfd @cld @clq _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _                          _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _                    _          _    _    _    _
+  _    _    _              _              _    _    _    _               _    _    _     _    _
+)
+
+#| *********
+   Variables
+   ********* |#
+(defvar
+  ;; Set tap/hold time for layer tap-hold
+  layer-tap-time 200
+  layer-hold-time 160
+
+  ;; Set tap/hold time for space tap-hold
+  spc-tap-time 200
+  spc-hold-time 200
+
+  ;; Set tap/hold time for homerow mods
+  ctl-tap 200
+  alt-tap 200
+  sft-tap 200
+  met-tap 200
+
+  ctl-hold 150
+  alt-hold 170
+  sft-hold 125
+  met-hold 200
+
+  ;; Define left and right hand keys for high-speed typing
+  lh-keys (
+    ' , . p y
+    a o e u i
+    ; q j k x
+  )
+
+  rh-keys (
+    f g c r l
+    d h t n s
+    b m w v z
+  )
+)
+
+#| *******
+   Aliases
+   ******* |#
+(defalias
+  ;; tap: backtick (`), hold: layer-switch toggle
+  grl (tap-hold $layer-tap-time $layer-hold-time grv (layer-toggle layers))
+
+  ;; tap: caps-word, hold: caps
+  cap (tap-hold $layer-tap-time $layer-hold-time (caps-word 2000) caps)
+
+  ;; tap: j, hold: lower layer
+  jlo (tap-hold $layer-tap-time $layer-hold-time j (layer-toggle lower))
+
+  ;; tap: m, hold: raise layer
+  mrs (tap-hold $layer-tap-time $layer-hold-time m (layer-toggle raise))
+
+  ;; tap: space, hold: space layer
+  slr (tap-hold-release $spc-tap-time $spc-hold-time spc (layer-toggle space))
+
+  ;; For layer switching
+  dfd (layer-switch dvorak)
+  cld (layer-switch dvorak-clean)
+  clq (layer-switch qwerty-clean)
+
+  ;; Homerow mods
+  tap (multi
+    (layer-switch dvorak-nomod)
+    (on-idle-fakekey to-base tap 20)
+  )
+
+  a (tap-hold-release-keys $ctl-tap $ctl-hold (multi a @tap) lctl $lh-keys)
+  o (tap-hold-release-keys $alt-tap $alt-hold (multi o @tap) lalt $lh-keys)
+  e (tap-hold-release-keys $sft-tap $sft-hold (multi e @tap) lsft $lh-keys)
+  u (tap-hold-release-keys $met-tap $met-hold (multi u @tap) lmet $lh-keys)
+  h (tap-hold-release-keys $met-tap $met-hold (multi h @tap) rmet $rh-keys)
+  t (tap-hold-release-keys $sft-tap $sft-hold (multi t @tap) rsft $rh-keys)
+  n (tap-hold-release-keys $alt-tap $alt-hold (multi n @tap) ralt $rh-keys)
+  s (tap-hold-release-keys $ctl-tap $ctl-hold (multi s @tap) rctl $rh-keys)
+)
+
+(deffakekeys
+  to-base (layer-switch dvorak)
+)
+
+#|
+(deflayer layers
+  _    _    _    _    _    _    _    _    _    _    _    _    _               _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _                          _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _                    _          _    _    _    _
+  _    _    _              _              _    _    _    _               _    _    _     _    _
+)
+|#

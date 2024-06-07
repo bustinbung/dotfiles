@@ -48,6 +48,18 @@
   @fn  lctl lalt lmet      spc            rmet ralt           left down rght
 )
 
+#| *************
+   QWERTY layers
+   ************* |#
+(deflayer qwerty-clean
+  esc  brdn brup f3   f4   f5   f6   prev pp   next mute vold volu
+  @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft      up
+  @fn  lctl lalt lmet      spc            rmet ralt           left down rght
+)
+
 #| *****
    Raise
    ***** |#
@@ -89,7 +101,7 @@
    ************ |#
 (deflayer layers
   _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    lrld @dfd @cld _    _    _    _    _    _    _    _    _    _
+  _    lrld @dfd @cld @clq _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _         _
@@ -152,7 +164,7 @@
   ;; tap: backtick (`), hold: layer-switch toggle
   grl (tap-hold $layer-tap-time $layer-hold-time grv (layer-toggle layers))
 
-  ;; tap: caps-word, hold: caps
+  ;; tap: caps-word, hold: hyper
   cap (tap-hold $layer-tap-time $layer-hold-time (caps-word 2000) caps)
 
   ;; tap: j, hold: lower layer
@@ -167,6 +179,7 @@
   ;; For layer switching
   dfd (layer-switch dvorak)
   cld (layer-switch dvorak-clean)
+  clq (layer-switch qwerty-clean)
 
   ;; Fix function key
   fn (multi (layer-toggle function) fn)
