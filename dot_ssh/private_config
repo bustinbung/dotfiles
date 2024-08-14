@@ -3,3 +3,4 @@ Host *
 
 Host server-justin
     HostName 193.122.142.64
+    User ubuntu
