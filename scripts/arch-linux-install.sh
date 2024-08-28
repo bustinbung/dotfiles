@@ -16,41 +16,6 @@ if [ ! -e /etc/tmpfiles.d/fix-suspend.conf ] ; then
   echo │ Writing suspend fix tmpfile │
   echo └─────────────────────────────┘
   echo w /proc/acpi/wakeup - - - - GPP0 | sudo tee /etc/tmpfiles.d/fix-suspend.conf
-
-  echo ┌────────────────────────────────┐
-  echo │ Enabling Nvidia power services │
-  echo └────────────────────────────────┘
-  sudo systemctl enable nvidia-{suspend,hibernate,resume}
-fi
-
-# Grant access to Wooting for Wootility
-if [ ! -e /etc/udev/rules.d/70-wooting.rules ] ; then
-  echo ┌──────────────────────────────┐
-  echo │ Writing Wootility udev rules │
-  echo └──────────────────────────────┘
-
-  sudo tee /etc/udev/rules.d/70-wooting.rules <<EOF
-# Wooting One Legacy
-SUBSYSTEM=="hidraw", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="ff01", TAG+="uaccess"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="ff01", TAG+="uaccess"
-
-# Wooting One update mode
-SUBSYSTEM=="hidraw", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="2402", TAG+="uaccess"
-
-# Wooting Two Legacy
-SUBSYSTEM=="hidraw", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="ff02", TAG+="uaccess"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="ff02", TAG+="uaccess"
-
-# Wooting Two update mode
-SUBSYSTEM=="hidraw", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="2403", TAG+="uaccess"
-
-# Generic Wootings
-SUBSYSTEM=="hidraw", ATTRS{idVendor}=="31e3", TAG+="uaccess"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="31e3", TAG+="uaccess"
-EOF
-
-  # Apply rules
-  sudo udevadm control --reload-rules && sudo udevadm trigger
 fi
 
 # Install doom emacs
