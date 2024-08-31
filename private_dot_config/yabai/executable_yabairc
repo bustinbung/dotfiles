@@ -72,6 +72,7 @@ yabai -m rule --add app="^(System Settings|\
                            Bartender 5)$"\
                     manage=off
 yabai -m rule --add label="About This Mac" app="System Information" manage=off
+yabai -m rule --add title="Developer Tools" manage=off
 
 # events
 yabai -m signal --add event=space_created action="sketchybar --trigger space_created"
