@@ -4,6 +4,7 @@ README.md
 {{- if ne .chezmoi.os "linux" }}
 .config/hypr/
 .config/waybar/
+.config/rofi
 {{- end }}
 
 # MacOS only
