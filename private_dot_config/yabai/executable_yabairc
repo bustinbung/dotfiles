@@ -45,7 +45,6 @@ yabai -m config                                         \
 yabai -m rule --add app="Thunderbird" space=1
 yabai -m rule --add app="Messages"    space=1
 yabai -m rule --add app="Calendar"    space=1
-yabai -m space 1 --layout stack
 
 # space 2: development
 yabai -m rule --add app="Visual Studio Code"  space=2
