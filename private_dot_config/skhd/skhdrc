@@ -86,8 +86,8 @@ shift + alt - s : yabai -m space --layout float && sketchybar --trigger layout_c
 # Close current window
 shift + alt - c : yabai -m window --close
 
-# Alacritty (Terminal)
-alt - t : open -n /Applications/Alacritty.app
+# kitty (Terminal)
+alt - t : kitty -d ~ -1
 
 # Arc (Browser)
 alt - b : osascript ~/.config/skhd/scripts/openNewArc.scpt
