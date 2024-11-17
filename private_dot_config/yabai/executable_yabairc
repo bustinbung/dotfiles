@@ -50,7 +50,11 @@ yabai -m rule --add app="Calendar"    space=1
 yabai -m rule --add app="Visual Studio Code"  space=2
 yabai -m rule --add app="Emacs"               space=2
 yabai -m rule --add app="Alacritty"           space=2
+yabai -m rule --add app="kitty"               space=2
 yabai -m space 2 --layout bsp
+
+# space 3: web
+yabai -m rule --add app="Vivaldi"   space=3
 
 # float apps
 yabai -m rule --add app="^(System Settings|\
