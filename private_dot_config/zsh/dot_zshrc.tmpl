@@ -27,6 +27,7 @@ bindkey "$terminfo[kcud1]" history-substring-search-down
 # List
 alias ls='ls --color=auto'
 alias la='ls -a'
+# long, hidden, file markers, unit suffixes
 alias ll='ls -laFh'
 
 # File ops
@@ -145,10 +146,10 @@ n ()
 }
 
 # zellij auto-attach
-if [[ "$TERM_PROGRAM" != "vscode" ]]; then
-    ZELLIJ_AUTO_EXIT="true"
-    eval "$(zellij setup --generate-auto-start zsh)"
-fi
+# if [[ "$TERM_PROGRAM" != "vscode" ]]; then
+#     ZELLIJ_AUTO_EXIT="true"
+#     eval "$(zellij setup --generate-auto-start zsh)"
+# fi
 
 # sdkman
 {{- if eq .chezmoi.os "linux" }}
