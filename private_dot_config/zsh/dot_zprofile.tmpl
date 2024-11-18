@@ -6,8 +6,11 @@ path=(
     # emacs
     $HOME/.config/emacs/bin
     {{- if eq .chezmoi.os "darwin" }}
-    #fzf
+    # fzf
     /opt/homebrew/opt/fzf/bin
+
+    # kanata
+    /opt/kanata/bin
     {{- end }}
 
     $path
