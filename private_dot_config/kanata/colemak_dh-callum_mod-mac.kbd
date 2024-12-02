@@ -1,0 +1,165 @@
+#| *************
+   Configuration
+   ************* |#
+(defcfg
+  ;; Allow kanata to process keys even if not defined
+  process-unmapped-keys yes
+)
+
+#| ******
+   Source
+   ****** |#
+(defsrc
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft      up
+  fn   lctl lalt lmet      spc            rmet ralt           left down rght
+)
+
+#| ******
+   Layers
+   ****** |#
+(deflayer colemak
+  esc  brdn brup f3   f4   f5   f6   prev pp   next mute vold volu
+  @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    f    p    b    j    l    u    y    '    [    ]    \
+  @cap a    r    s    t    g    m    n    e    i    o    -    ret
+  lsft x    c    d    v    z    k    h    ,    .    ;    rsft      up
+  @fn  lctl lalt @lme      spc            @rme ralt           left down rght
+)
+
+(deflayer qwerty-clean
+  esc  brdn brup f3   f4   f5   f6   prev pp   next mute vold volu
+  @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft      up
+  @fn  lctl lalt lmet      spc            rmet ralt           left down rght
+)
+
+(deflayer sym
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    S-[  S-9  S-0  S-] esc   S-6  S-5  S-3   \   S-\  _    _    _
+  _    [    -    =    ]    S-4  _    @osc @oss @osa @osm _    _
+  _    S-=  S--  S-8  /    S-2  S-`  `    S-7  S-/  S-1  _         _
+  _    _    _    _         _              _    _              _    _    _
+)
+
+(deflayer nav
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    caps volu esc  home pgdn pgup end  _    _    _
+  _    @osm @osa @oss @osc vold ret  left down up   rght _    _
+  _    _    _    prev next pp   tab  bspc del  _    _    _         _
+  _    _    _    _         _              _    _              _    _    _
+)
+
+(deflayer num
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    7    5    3    1    9    8    0    2    4    6    _    _    _
+  _    @osm @osa @oss @osc f11  f10  @osc @oss @osa @osm _    _
+  _    f7   f5   f3   f1   f9   f8   f12  f2   f4   f6  _         _
+  _    _    _    _         _              _    _              _    _    _
+)
+
+(deflayer layers
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    lrld @dfc @clq _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _         _
+  _    _    _    _         _              _    _              _    _    _
+)
+
+(deflayer function
+  _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  _    _    _    _    _    _    _    _    _    _    _    _    _    del
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _         _
+  _    _    _    _         _              _    _              _    _    _
+)
+
+#| *******
+   Options
+   ******* |#
+
+(defvar
+  ;; Set tap/hold time for layer tap-hold
+  layer-tap-time 200
+  layer-hold-time 160
+
+  ;; Set tap/hold time for space tap-hold
+  spc-tap-time 200
+  spc-hold-time 200
+)
+
+(defvirtualkeys
+  callum (switch
+    ((and nop1 nop2)) (layer-while-held num) break
+    (nop1) (layer-while-held nav) break
+    (nop2) (layer-while-held sym) break)
+  activate-callum (multi
+   (one-shot-pause-processing 5)
+   (switch
+    ((or nop1 nop2))
+     (multi (on-press release-vkey callum)
+            (on-press press-vkey callum))
+     break
+    () (on-press release-vkey callum) break)))
+
+(defalias
+  sym (layer-while-held sym)
+  nav (layer-while-held nav)
+  num (layer-while-held num)
+
+  lme (multi nop1
+             (on-press tap-vkey activate-callum)
+             (on-release tap-vkey activate-callum))
+  rme (multi nop2
+             (on-press tap-vkey activate-callum)
+             (on-release tap-vkey activate-callum))
+
+  ;; One-shot mods
+  osc (one-shot 2000 lmet)
+  osa (one-shot 2000 lalt)
+  oss (one-shot 2000 lsft)
+  osm (one-shot 2000 lctl)
+
+  ;; tap: backtick (`), hold: layer-switch toggle
+  grl (tap-hold $layer-tap-time $layer-hold-time grv (layer-toggle layers))
+
+  ;; tap: caps-word, hold: hyper
+  cap (tap-hold $layer-tap-time $layer-hold-time (caps-word 2000) (multi ctl alt met sft))
+
+  ;; tap: space, hold: space layer
+  ;;slr (tap-hold-release $spc-tap-time $spc-hold-time spc (layer-toggle space))
+
+  ;; For layer switching
+  dfc (layer-switch colemak)
+  clq (layer-switch qwerty-clean)
+
+  ;; Fix function key
+  fn (multi (layer-toggle function) fn)
+)
+
+;;(defchords layers 5000
+;;  (l  ) @nav
+;;  (  r) @sym
+;;  (l r) @num
+;;)
+
+#|
+(deflayer layers
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _         _
+  _    _    _    _         _              _    _              _    _    _
+)
+|#
