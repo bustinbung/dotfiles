@@ -1,6 +1,6 @@
 path=(
     # core PATH
-    $HOME/{,s}bin
+    $HOME/.bin
     /usr/local/{,s}bin
 
     # emacs
@@ -8,9 +8,6 @@ path=(
     {{- if eq .chezmoi.os "darwin" }}
     # fzf
     /opt/homebrew/opt/fzf/bin
-
-    # kanata
-    /opt/kanata/bin
     {{- end }}
 
     $path
