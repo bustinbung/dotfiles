@@ -27,7 +27,16 @@
   tab  q    w    f    p    b    j    l    u    y    '    [    ]    \
   @cap a    r    s    t    g    m    n    e    i    o    -    ret
   lsft x    c    d    v    z    k    h    ,    .    ;    rsft      up
-  @fn  lctl lalt @lme      spc            @rme ralt           left down rght
+  @fn  lctl lalt @lme      @spc           @rme ralt           left down rght
+)
+
+(deflayer colemak-clean
+  esc  brdn brup f3   f4   f5   f6   prev pp   next mute vold volu
+  @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    f    p    b    j    l    u    y    '    [    ]    \
+  @cap a    r    s    t    g    m    n    e    i    o    -    ret
+  lsft x    c    d    v    z    k    h    ,    .    ;    rsft      up
+  @fn  lctl lalt lmet      spc            rmet ralt           left down rght
 )
 
 (deflayer qwerty-clean
@@ -68,7 +77,7 @@
 
 (deflayer layers
   _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    lrld @dfc @clq _    _    _    _    _    _    _    _    _    _
+  _    lrld @dfc @clc @clq _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _         _
@@ -136,12 +145,13 @@
   ;; tap: caps-word, hold: hyper
   cap (tap-hold $layer-tap-time $layer-hold-time (caps-word 2000) (multi ctl alt met sft))
 
-  ;; tap: space, hold: space layer
-  ;;slr (tap-hold-release $spc-tap-time $spc-hold-time spc (layer-toggle space))
+  ;; tap: space, hold: shift
+  spc (tap-hold-release $spc-tap-time $spc-hold-time spc lsft)
 
   ;; For layer switching
   dfc (layer-switch colemak)
   clq (layer-switch qwerty-clean)
+  clc (layer-switch colemak-clean)
 
   ;; Fix function key
   fn (multi (layer-toggle function) fn)
