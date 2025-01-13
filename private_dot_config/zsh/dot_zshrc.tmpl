@@ -42,6 +42,9 @@ alias ln='ln -v'
 # grep
 alias grep='grep --color=auto'
 
+# ssh (fixes TERM variable weirdness)
+alias ssh='TERM=xterm ssh'
+
 # Config
 alias ce='$EDITOR $ZDOTDIR/.zshrc'
 alias cs='source $ZDOTDIR/.zshrc'
