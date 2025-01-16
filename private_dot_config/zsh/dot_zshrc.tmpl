@@ -1,5 +1,9 @@
 # Load antidote
+{{- if eq .chezmoi.os "darwin" }}
+source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
+{{- else if eq .chezmoi.os "linux" }}
 source /usr/share/zsh-antidote/antidote.zsh
+{{- end }}
 antidote load ${ZDOTDIR}/.zplugins
 
 ### SETTINGS ###
@@ -34,6 +38,11 @@ alias ssh='kitten ssh'
 alias ce='$EDITOR $ZDOTDIR/.zshrc'
 alias cs='source $ZDOTDIR/.zshrc'
 
+# Programs
+alias lg='lazygit'
+alias cm='chezmoi'
+
+{{ if eq .chezmoi.os "linux" -}}
 # Pacman
 alias sp='sudo pacman'
 alias sps='sudo pacman -S'
@@ -41,10 +50,7 @@ alias spsu='sudo pacman -Syu'
 alias spr='sudo pacman -R'
 alias sprs='sudo pacman -Rs'
 alias spq='sudo pacman -Q'
-
-# Programs
-alias lg='lazygit'
-alias cm='chezmoi'
+{{- end }}
 
 ### TOOLS ###
 # zoxide
