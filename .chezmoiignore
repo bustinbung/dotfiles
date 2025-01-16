@@ -1,10 +1,8 @@
 README.md
 
-# Arch Linux only
+# Linux only
 {{- if ne .chezmoi.os "linux" }}
 .config/hypr/
-.config/waybar/
-.config/rofi
 {{- end }}
 
 # MacOS only
@@ -13,8 +11,3 @@ README.md
 .config/skhd/
 .config/yabai/
 {{- end }}
-
-# All
-Brewfile
-packages/
-scripts/
