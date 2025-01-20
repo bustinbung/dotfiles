@@ -1,9 +1,8 @@
 # Sets user-defined palette
 palette = "catppuccin_mocha"
 
-format = '''$directory$sudo$fill$status$cmd_duration$git_branch$git_status
+format = '''$directory$sudo$git_branch$git_status$status$cmd_duration
 $character'''
-right_format = ''''''
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
@@ -46,25 +45,25 @@ read_only = " 󰌾"
 
 [sudo]
 disabled = false
-format = '[as root]($style)'
+format = 'with [sudo]($style) '
 style = 'bold yellow'
 
 [fill]
 symbol = ' '
 
 [git_branch]
-format = 'on [$symbol$branch(:$remote_branch)]($style)'
+format = 'on [$symbol$branch(:$remote_branch)]($style) '
 style = 'mauve'
 symbol = " "
 
 [status]
 disabled = false
-format = 'code [$symbol$status]($style) '
+format = 'exited [$symbol$status]($style) '
 symbol = '✘'
 style = 'bold red'
 
 [cmd_duration]
-format = 'took [$duration]($style) '
+format = 'took [$duration]($style)'
 style = 'peach'
 
 [aws]
