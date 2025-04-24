@@ -76,7 +76,7 @@ alt + shift - x : yabai -m space --mirror x-axis
 alt + shift - y : yabai -m space --mirror y-axis
 
 # Toggle layout
-alt - s : ~/.config/skhd/scripts/changeLayout.sh
+alt - a : ~/.config/skhd/scripts/changeLayout.sh
 shift + alt - s : yabai -m space --layout float && sketchybar --trigger layout_change
 
 ########
