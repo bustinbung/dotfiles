@@ -1,6 +1,6 @@
 theme:
   activeBorderColor:
-    - '#74c7ec'
+    - '#cba6f7'
     - bold
   inactiveBorderColor:
     - '#a6adc8'
@@ -11,12 +11,16 @@ theme:
   cherryPickedCommitBgColor:
     - '#45475a'
   cherryPickedCommitFgColor:
-    - '#74c7ec'
+    - '#cba6f7'
   unstagedChangesColor:
     - '#f38ba8'
   defaultFgColor:
     - '#cdd6f4'
   searchingActiveBorderColor:
     - '#f9e2af'
+
+authorColors:
+  '*': '#b4befe'
+
 git:
   overrideGpg: true
