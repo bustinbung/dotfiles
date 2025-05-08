@@ -73,7 +73,8 @@ yabai -m rule --add app="^(System Settings|\
                            Homerow|\
                            Archive Utility|\
                            Calculator|\
-                           Bartender 5)$"\
+                           Bartender 5|\
+                           Multiviewer for F1)$"\
                     manage=off
 yabai -m rule --add label="About This Mac" app="System Information" manage=off
 yabai -m rule --add title="Developer Tools" manage=off
