@@ -1,0 +1,5 @@
+@import "launcher.rasi"
+
+entry {
+    placeholder: "combi...";
+}
