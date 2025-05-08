@@ -3,6 +3,8 @@ README.md
 # Linux only
 {{- if ne .chezmoi.os "linux" }}
 .config/hypr/
+.config/waybar/
+.config/rofi/
 {{- end }}
 
 # MacOS only
