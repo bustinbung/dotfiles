@@ -5,6 +5,7 @@ README.md
 .config/hypr/
 .config/waybar/
 .config/rofi/
+Pictures
 {{- end }}
 
 # MacOS only
