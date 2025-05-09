@@ -6,5 +6,7 @@ export EDITOR=nvim
 export LANG='en_US.UTF-8'
 
 # PATH additions
+typeset -U PATH path
+
 path+=('/home/justin/.config/emacs/bin')
 export PATH
