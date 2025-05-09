@@ -93,4 +93,6 @@ n ()
 }
 
 # nvm
+{{- if eq .chezmoi.os "linux" }}
 source /usr/share/nvm/init-nvm.sh
+{{- end }}
