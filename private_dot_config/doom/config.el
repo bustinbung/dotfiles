@@ -78,3 +78,10 @@
 
 (setq scroll-margin 10)
 
+;; From https://github.com/syl20bnr/spacemacs/issues/3098
+(add-hook! '(
+             messages-buffer-mode-hook
+             comint-mode-hook
+             vterm-mode-hook
+             )
+  (setq-local scroll-margin 0))
