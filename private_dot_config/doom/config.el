@@ -86,3 +86,6 @@
              vterm-mode-hook
              )
   (setq-local scroll-margin 0))
+
+(after! treemacs
+  (setq treemacs-position 'right))
