@@ -78,6 +78,7 @@
 
 (setq scroll-margin 10)
 
+;; Disables scroll margin in specific buffer types
 ;; From https://github.com/syl20bnr/spacemacs/issues/3098
 (add-hook! '(
              messages-buffer-mode-hook
