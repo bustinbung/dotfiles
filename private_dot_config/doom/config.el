@@ -99,3 +99,7 @@
   (setq astro-ts-mode-indent-offset 4))
 
 (add-to-list 'auto-mode-alist '("\\.astro\\'" . astro-ts-mode))
+
+;; New emacsclient opens in main workspace
+(after! persp-mode
+  (setq persp-emacsclient-init-frame-behaviour-override "main"))
