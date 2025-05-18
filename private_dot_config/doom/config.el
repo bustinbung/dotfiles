@@ -89,3 +89,13 @@
 
 (after! treemacs
   (setq treemacs-position 'right))
+
+;; Astro support
+(after! astro-ts-mode
+  (setq treesit-language-source-alist
+        '((astro "https://github.com/virchau13/tree-sitter-astro")
+          (css "https://github.com/tree-sitter/tree-sitter-css")
+          (tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")))
+  (setq astro-ts-mode-indent-offset 4))
+
+(add-to-list 'auto-mode-alist '("\\.astro\\'" . astro-ts-mode))
