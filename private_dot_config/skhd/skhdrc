@@ -134,8 +134,8 @@ apps < e : open "/Applications/Emacs (Client).app"
 ### Service ###
 
 # semicolon
-hyper - 0x23 ; apps
-apps < escape ; default
+hyper - 0x23 ; service
+service < escape ; default
 
 # Reload yabai, skhd config
 service < r : source ~/.config/yabai/yabairc && skhd -r
