@@ -1,0 +1,31 @@
+{
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "editor.fontFamily": "'Monaspace Argon', 'monospace', monospace",
+    "editor.fontLigatures": "'calt', 'liga', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'ss09'",
+    "workbench.iconTheme": "catppuccin-mocha",
+    "editor.accessibilitySupport": "off",
+    "editor.fontSize": 14,
+    "debug.console.fontSize": 14,
+    "terminal.integrated.fontSize": 14,
+    "git.openRepositoryInParentFolders": "always",
+    "editor.wordWrap": "on",
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "json.schemas": [
+    {
+        "fileMatch": [
+            "**/content.json"
+        ],
+        "url": "/Users/justin/Developer/NMI/4020/content.schema.json"
+    }
+    ],
+    "cronTasks.tasks": [],
+    "svelte.enable-ts-plugin": true,
+    "workbench.tree.indent": 12,
+    "explorer.sortOrder": "filesFirst",
+    "git.confirmSync": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "workbench.sideBar.location": "right",
+    "editor.lineNumbers": "relative",
+    "syncSettings.resources": ["extensions", "keybindings", "settings", "snippets"],
+}
