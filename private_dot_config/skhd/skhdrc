@@ -1,106 +1,144 @@
-##########
-# Window #
-##########
+### Blacklist ###
+.blacklist [
+    "DaVinci Resolve"
+    "Adobe Premiere Pro"
+]
 
-# focus window
+### Modes ###
+# mauve
+:: default : borders active_color=0xffcba6f7
+# green
+:: window @ : borders active_color=0xffa6e3a1
+# red
+:: spaces @ : borders active_color=0xfff38ba8
+# blue
+:: apps @ : borders active_color=0xff89b4fa
+# white
+:: service @ : borders active_color=0xffcdd6f4
+
+### Window ###
+
+hyper - w ; window
+window < escape ; default
 
 # Focus window
-alt - h : yabai -m window --focus west
-alt - j : yabai -m window --focus south
-alt - k : yabai -m window --focus north
-alt - l : yabai -m window --focus east
+hyper - h : yabai -m window --focus west
+hyper - j : yabai -m window --focus south
+hyper - k : yabai -m window --focus north
+hyper - l : yabai -m window --focus east
 
-alt - z : yabai -m query --spaces --space \
-    | jq -re ".index" \
-    | xargs -I{} yabai -m query --windows --space {} \
-    | jq -sre 'add | map(select(."is-minimized"==false)) | sort_by(.display, .frame.y, .frame.x, .id) | . as $array | length as $array_length | index(map(select(."has-focus"==true))) as $has_index | if $has_index > 0 then nth($has_index - 1).id else nth($array_length - 1).id end' \
-    | xargs -I{} yabai -m window --focus {}
-alt - c : yabai -m query --spaces --space \
-    | jq -re ".index" \
-    | xargs -I{} yabai -m query --windows --space {} \
-    | jq -sre 'add | map(select(."is-minimized"==false)) | sort_by(.display, .frame.y, .frame.x, .id) | . as $array | length as $array_length | index(map(select(."has-focus"==true))) as $has_index | if $array_length - 1 > $has_index then nth($has_index + 1).id else nth(0).id end' \
-    | xargs -I{} yabai -m window --focus {}
+window < h : yabai -m window --focus west
+window < j : yabai -m window --focus south
+window < k : yabai -m window --focus north
+window < l : yabai -m window --focus east
+
+hyper - c : yabai -m window --focus stack.next || yabai -m window --focus stack.first
+window < c : yabai -m window --focus stack.next || yabai -m window --focus stack.first
+window < shift - c : yabai -m window --focus stack.prev || yabai -m window --focus stack.last
 
 # Move window
-shift + alt - h : yabai -m window --warp west
-shift + alt - j : yabai -m window --warp south
-shift + alt - k : yabai -m window --warp north
-shift + alt - l : yabai -m window --warp east
+window < shift - h : yabai -m window --warp west
+window < shift - j : yabai -m window --warp south
+window < shift - k : yabai -m window --warp north
+window < shift - l : yabai -m window --warp east
 
-# Swap window
-cmd + alt - h : yabai -m window --swap west
-cmd + alt - j : yabai -m window --swap south
-cmd + alt - k : yabai -m window --swap north
-cmd + alt - l : yabai -m window --swap east
+# Resize windows
+window < ctrl - h : yabai -m window --resize right:-20:0 2> /dev/null || yabai -m window --resize left:-20:0 2> /dev/null
+window < ctrl - j : yabai -m window --resize bottom:0:20 2> /dev/null || yabai -m window --resize top:0:20 2> /dev/null
+window < ctrl - k : yabai -m window --resize bottom:0:-20 2> /dev/null || yabai -m window --resize top:0:-20 2> /dev/null
+window < ctrl - l : yabai -m window --resize right:20:0 2> /dev/null || yabai -m window --resize left:20:0 2> /dev/null
 
 # Balance windows
-shift + alt - 0 : yabai -m space --balance
+hyper - 0 : yabai -m space --balance
+window < 0 : yabai -m space --balance
 
 # Toggle window float
-alt - space : yabai -m window --toggle float && sketchybar --trigger app_update
+window < shift - f : yabai -m window --toggle float
 
-# Make floating window fill screen
-alt - m : yabai -m window --grid 1:1:0:0:1:1
+# Toggle fullscreen
+hyper - f : yabai -m window --toggle zoom-fullscreen
+window < f : yabai -m window --toggle zoom-fullscreen
 
-# Toggle native fullscreen
-cmd + alt - m : yabai -m window --toggle native-fullscreen
+# Scratchpad
+hyper - s : yabai -m window --toggle magic
+window < s : yabai -m window --toggle magic
+window < shift - s : yabai -m window --scratchpad magic
 
-#########
-# Space #
-#########
+### Space ###
+
+hyper - s ; spaces
+spaces < escape ; default
 
 # Focus space
-alt - 1 : yabai -m space --focus 1
-alt - 2 : yabai -m space --focus 2
-alt - 3 : yabai -m space --focus 3
-alt - 4 : yabai -m space --focus 4
-alt - 5 : yabai -m space --focus 5
-alt - 6 : yabai -m space --focus 6
-alt - 7 : yabai -m space --focus 7
-alt - 8 : yabai -m space --focus 8
-alt - 9 : yabai -m space --focus 9
+hyper - 1 : yabai -m space --focus 1
+hyper - 2 : yabai -m space --focus 2
+hyper - 3 : yabai -m space --focus 3
+hyper - 4 : yabai -m space --focus 4
+hyper - 5 : yabai -m space --focus 5
+hyper - 6 : yabai -m space --focus 6
+hyper - 7 : yabai -m space --focus 7
+hyper - 8 : yabai -m space --focus 8
+hyper - 9 : yabai -m space --focus 9
+
+spaces < 1 : yabai -m space --focus 1
+spaces < 2 : yabai -m space --focus 2
+spaces < 3 : yabai -m space --focus 3
+spaces < 4 : yabai -m space --focus 4
+spaces < 5 : yabai -m space --focus 5
+spaces < 6 : yabai -m space --focus 6
+spaces < 7 : yabai -m space --focus 7
+spaces < 8 : yabai -m space --focus 8
+spaces < 9 : yabai -m space --focus 9
 
 # Move window to space
-alt + shift - 1 : yabai -m window --space 1
-alt + shift - 2 : yabai -m window --space 2
-alt + shift - 3 : yabai -m window --space 3
-alt + shift - 4 : yabai -m window --space 4
-alt + shift - 5 : yabai -m window --space 5
-alt + shift - 6 : yabai -m window --space 6
-alt + shift - 7 : yabai -m window --space 7
-alt + shift - 8 : yabai -m window --space 8
-alt + shift - 9 : yabai -m window --space 9
-
-# Mirror space on x and y axis
-alt + shift - x : yabai -m space --mirror x-axis
-alt + shift - y : yabai -m space --mirror y-axis
+spaces < shift - 1 : yabai -m window --space 1
+spaces < shift - 2 : yabai -m window --space 2
+spaces < shift - 3 : yabai -m window --space 3
+spaces < shift - 4 : yabai -m window --space 4
+spaces < shift - 5 : yabai -m window --space 5
+spaces < shift - 6 : yabai -m window --space 6
+spaces < shift - 7 : yabai -m window --space 7
+spaces < shift - 8 : yabai -m window --space 8
+spaces < shift - 9 : yabai -m window --space 9
 
 # Toggle layout
-alt - a : ~/.config/skhd/scripts/changeLayout.sh
-shift + alt - s : yabai -m space --layout float && sketchybar --trigger layout_change
+hyper - a : ~/.config/skhd/scripts/changeLayout.sh
+spaces < a : ~/.config/skhd/scripts/changeLayout.sh
+spaces < f : yabai -m space --layout float
 
-########
-# Apps #
-########
+### Apps ###
+
+hyper - d ; apps
+apps < escape ; default
 
 # Close current window
-shift + alt - c : yabai -m window --close
+hyper - q : yabai -m window --close
+apps < q : yabai -m window --close
 
-# kitty (Terminal)
-alt - t : kitty -d ~ -1
+# Terminal
+hyper - t : kitty -d ~ -1
+apps < t : kitty -d ~ -1
 
-# Arc (Browser)
-alt - b : osascript ~/.config/skhd/scripts/openNewArc.scpt
+# Browser
+hyper - b : osascript ~/.config/skhd/scripts/openNewVivaldi.scpt
+apps < b : osascript ~/.config/skhd/scripts/openNewVivaldi.scpt
 
 # Finder (Files)
-alt - f : osascript ~/.config/skhd/scripts/openNewFinder.scpt
+hyper - f : osascript ~/.config/skhd/scripts/openNewFinder.scpt
+apps < f : osascript ~/.config/skhd/scripts/openNewFinder.scpt
 
 # Emacs client
-alt - e : open "/Applications/Emacs (Client).app"
+hyper - e : open "/Applications/Emacs (Client).app"
+apps < e : open "/Applications/Emacs (Client).app"
 
-# Reload yabai, sketchybar, skhd config
-alt + shift - r : source ~/.config/yabai/yabairc && sketchybar --reload && skhd -r
+### Service ###
+
+# semicolon
+hyper - 0x23 ; apps
+apps < escape ; default
+
+# Reload yabai, skhd config
+service < r : source ~/.config/yabai/yabairc && skhd -r
 
 # Restart yabai
-alt + shift + ctrl - r : yabai --restart-service
-
+service < y : yabai --restart-service
