@@ -50,23 +50,23 @@ window < ctrl - l : yabai -m window --resize right:20:0 2> /dev/null || yabai -m
 
 # Balance windows
 hyper - 0 : yabai -m space --balance
-window < 0 : yabai -m space --balance
+window < 0 : yabai -m space --balance; skhd -k "escape"
 
 # Toggle window float
-window < shift - f : yabai -m window --toggle float
+window < shift - f : yabai -m window --toggle float; skhd -k "escape"
 
 # Toggle fullscreen
 hyper - f : yabai -m window --toggle zoom-fullscreen
-window < f : yabai -m window --toggle zoom-fullscreen
+window < f : yabai -m window --toggle zoom-fullscreen; skhd -k "escape"
 
 # Scratchpad
 hyper - s : yabai -m window --toggle magic
-window < s : yabai -m window --toggle magic
-window < shift - s : yabai -m window --scratchpad magic
+window < s : yabai -m window --toggle magic; skhd -k "escape"
+window < shift - s : yabai -m window --scratchpad magic; skhd -k "escape"
 
 ### Space ###
 
-hyper - s ; spaces
+hyper - o ; spaces
 spaces < escape ; default
 
 # Focus space
@@ -113,23 +113,23 @@ apps < escape ; default
 
 # Close current window
 hyper - q : yabai -m window --close
-apps < q : yabai -m window --close
+apps < q : yabai -m window --close; skhd -k "escape"
 
 # Terminal
 hyper - t : kitty -d ~ -1
-apps < t : kitty -d ~ -1
+apps < t : kitty -d ~ -1; skhd -k "escape"
 
 # Browser
 hyper - b : osascript ~/.config/skhd/scripts/openNewVivaldi.scpt
-apps < b : osascript ~/.config/skhd/scripts/openNewVivaldi.scpt
+apps < b : osascript ~/.config/skhd/scripts/openNewVivaldi.scpt; skhd -k "escape"
 
 # Finder (Files)
 hyper - f : osascript ~/.config/skhd/scripts/openNewFinder.scpt
-apps < f : osascript ~/.config/skhd/scripts/openNewFinder.scpt
+apps < f : osascript ~/.config/skhd/scripts/openNewFinder.scpt; skhd -k "escape"
 
 # Emacs client
 hyper - e : open "/Applications/Emacs (Client).app"
-apps < e : open "/Applications/Emacs (Client).app"
+apps < e : open "/Applications/Emacs (Client).app"; skhd -k "escape"
 
 ### Service ###
 
@@ -138,7 +138,7 @@ hyper - 0x23 ; service
 service < escape ; default
 
 # Reload yabai, skhd config
-service < r : source ~/.config/yabai/yabairc && skhd -r
+service < r : source ~/.config/yabai/yabairc && skhd -r; skhd -k "escape"
 
 # Restart yabai
-service < y : yabai --restart-service
+service < y : yabai --restart-service; skhd -k "escape"
