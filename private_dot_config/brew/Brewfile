@@ -1,0 +1,74 @@
+tap "d12frosted/emacs-plus"
+tap "felixkratz/formulae"
+tap "koekeishiya/formulae"
+brew "antidote"
+brew "btop"
+brew "chezmoi"
+brew "fd"
+brew "fzf"
+brew "git"
+brew "hyfetch"
+brew "jq"
+brew "lazygit"
+brew "mas"
+brew "neovim"
+brew "nnn"
+brew "node@20"
+brew "python@3.11"
+brew "ripgrep"
+brew "shellcheck"
+brew "shfmt"
+brew "starship"
+brew "unzip"
+brew "yt-dlp"
+brew "zellij"
+brew "zoxide"
+brew "d12frosted/emacs-plus/emacs-plus@30", args: ["with-elrumo2-icon", "with-imagemagick"]
+brew "felixkratz/formulae/sketchybar"
+brew "koekeishiya/formulae/skhd"
+brew "koekeishiya/formulae/yabai"
+cask "1password"
+cask "ableton-live-standard"
+cask "adobe-creative-cloud"
+cask "android-studio"
+cask "appcleaner"
+cask "bartender"
+cask "daisydisk"
+cask "discord"
+cask "font-jetbrains-mono"
+cask "font-jetbrains-mono-nerd-font"
+cask "font-monaspace"
+cask "handbrake"
+cask "homerow"
+cask "kitty"
+cask "microsoft-auto-update"
+cask "microsoft-excel"
+cask "microsoft-powerpoint"
+cask "microsoft-word"
+cask "obsidian"
+cask "onedrive"
+cask "qmk-toolbox"
+cask "tetrio"
+cask "vscodium"
+mas "Beat", id: 1549538329
+mas "Blackmagic Disk Speed Test", id: 425264550
+mas "Compressor", id: 424390742
+mas "Dropover", id: 1355679052
+mas "Final Cut Pro", id: 424389933
+mas "forScore", id: 363738376
+mas "Goodnotes", id: 1444383602
+mas "Keynote", id: 409183694
+mas "Logic Pro", id: 634148309
+mas "MainStage", id: 634159523
+mas "Motion", id: 434290957
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+vscode "astro-build.astro-vscode"
+vscode "catppuccin.catppuccin-vsc"
+vscode "catppuccin.catppuccin-vsc-icons"
+vscode "catppuccin.catppuccin-vsc-pack"
+vscode "svelte.svelte-vscode"
+vscode "unifiedjs.vscode-mdx"
+vscode "vscodevim.vim"
+vscode "zokugun.cron-tasks"
+vscode "zokugun.sync-settings"
