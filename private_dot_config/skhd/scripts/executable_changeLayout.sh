@@ -7,5 +7,3 @@ case $LAYOUT in
     "\"stack\"") yabai -m space --layout bsp ;;
     *) yabai -m space --layout stack
 esac
-
-sketchybar --trigger layout_change
