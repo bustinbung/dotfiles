@@ -6,6 +6,7 @@ README.md
 .config/waybar/
 .config/rofi/
 Pictures
+.config/electron-flags.conf
 {{- end }}
 
 # MacOS only
