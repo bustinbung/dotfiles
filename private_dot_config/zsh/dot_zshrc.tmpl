@@ -101,3 +101,6 @@ n ()
 {{- if eq .chezmoi.os "linux" }}
 source /usr/share/nvm/init-nvm.sh
 {{- end }}
+
+# chezmoi
+eval "$(chezmoi completion zsh)"
