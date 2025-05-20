@@ -13,4 +13,6 @@ Pictures
 .config/sketchybar/
 .config/skhd/
 .config/yabai/
+.config/borders
+.config/brew
 {{- end }}
