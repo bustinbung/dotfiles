@@ -120,16 +120,16 @@ hyper - t : kitty -d ~ -1
 apps < t : kitty -d ~ -1; skhd -k "escape"
 
 # Browser
-hyper - b : osascript ~/.config/skhd/scripts/openNewVivaldi.scpt
-apps < b : osascript ~/.config/skhd/scripts/openNewVivaldi.scpt; skhd -k "escape"
+# hyper - b : osascript ~/.config/skhd/scripts/openNewVivaldi.scpt
+# apps < b : osascript ~/.config/skhd/scripts/openNewVivaldi.scpt; skhd -k "escape"
 
 # Finder (Files)
-hyper - f : osascript ~/.config/skhd/scripts/openNewFinder.scpt
-apps < f : osascript ~/.config/skhd/scripts/openNewFinder.scpt; skhd -k "escape"
+hyper - e : osascript ~/.config/skhd/scripts/openNewFinder.scpt
+apps < e : osascript ~/.config/skhd/scripts/openNewFinder.scpt; skhd -k "escape"
 
 # Emacs client
-hyper - e : open "/Applications/Emacs (Client).app"
-apps < e : open "/Applications/Emacs (Client).app"; skhd -k "escape"
+hyper - n : open "/Applications/Emacs (Client).app"
+apps < n : open "/Applications/Emacs (Client).app"; skhd -k "escape"
 
 ### Service ###
 
