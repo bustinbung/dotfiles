@@ -7,21 +7,21 @@ sudo yabai --load-sa
 PADDING=10
 
 # check if sketchybar is running
-if [ -z "$(pgrep -i sketchybar)" ]; then
-    EXTERNAL_BAR=0
-else
-    EXTERNAL_BAR=34
-fi
+# if [ -z "$(pgrep -i sketchybar)" ]; then
+    # EXTERNAL_BAR=0
+# else
+    # EXTERNAL_BAR=36
+# fi
 
 yabai -m config                                         \
-    external_bar                all:0:$EXTERNAL_BAR     \
-    mouse_follows_focus         on                      \
+    external_bar                all:0:0                 \
+    mouse_follows_focus         off                     \
     focus_follows_mouse         autofocus               \
     window_origin_display       focused                 \
     window_placement            second_child            \
     window_insertion_point      focused                 \
     window_zoom_persist         on                      \
-    window_shadow               on                      \
+    window_shadow               off                     \
     window_opacity              on                      \
     window_opacity_duration     0.3                     \
     active_window_opacity       1.0                     \
@@ -58,24 +58,7 @@ yabai -m space 2 --layout bsp
 yabai -m rule --add app="Vivaldi"   space=3
 
 # float apps
-yabai -m rule --add app="^(System Settings|\
-                           Finder|\
-                           Digital Color Meter|\
-                           Shottr|\
-                           1Password|\
-                           Font Book|\
-                           ProtonVPN|\
-                           OneDrive|\
-                           Shottr|\
-                           Nextcloud|\
-                           Google Drive|\
-                           Box|\
-                           Creative Cloud|\
-                           Homerow|\
-                           Archive Utility|\
-                           Calculator|\
-                           Bartender 5|\
-                           Multiviewer for F1)$"\
+yabai -m rule --add app="^(System Settings|Finder|Digital Color Meter|Shottr|1Password|Font Book|ProtonVPN|OneDrive|Shottr|Nextcloud|Google Drive|Box|Creative Cloud|Homerow|Archive Utility|Calculator|Bartender 5|Multiviewer for F1|Raycast)$" \
                     manage=off
 yabai -m rule --add label="About This Mac" app="System Information" manage=off
 yabai -m rule --add title="Developer Tools" manage=off
@@ -85,4 +68,4 @@ yabai -m rule --add title="Developer Tools" manage=off
 # yabai -m signal --add event=space_destroyed action="sketchybar --trigger space_destroyed"
 # yabai -m signal --add event=window_title_changed action="sketchybar --trigger front_app_switched"
 
-echo "yabai configuration loaded.."
+echo "[$(date "+%H:%M:%S")] yabai configuration loaded.."
