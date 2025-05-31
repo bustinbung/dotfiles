@@ -103,3 +103,9 @@
 ;; New emacsclient opens in main workspace
 (after! persp-mode
   (setq persp-emacsclient-init-frame-behaviour-override "main"))
+
+{{- if eq .chezmoi.os "darwin" }}
+;; Fix Bash completion using MacOS built-in Bash
+(after! bash-completion
+  (setq bash-completion-  prog "/opt/homebrew/bin/bash"))
+{{- end }}
