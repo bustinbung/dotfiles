@@ -91,15 +91,15 @@ spaces < 8 : yabai -m space --focus 8
 spaces < 9 : yabai -m space --focus 9
 
 # Move window to space
-spaces < shift - 1 : yabai -m window --space 1
-spaces < shift - 2 : yabai -m window --space 2
-spaces < shift - 3 : yabai -m window --space 3
-spaces < shift - 4 : yabai -m window --space 4
-spaces < shift - 5 : yabai -m window --space 5
-spaces < shift - 6 : yabai -m window --space 6
-spaces < shift - 7 : yabai -m window --space 7
-spaces < shift - 8 : yabai -m window --space 8
-spaces < shift - 9 : yabai -m window --space 9
+spaces < shift - 1 : yabai -m window --space 1 --focus
+spaces < shift - 2 : yabai -m window --space 2 --focus
+spaces < shift - 3 : yabai -m window --space 3 --focus
+spaces < shift - 4 : yabai -m window --space 4 --focus
+spaces < shift - 5 : yabai -m window --space 5 --focus
+spaces < shift - 6 : yabai -m window --space 6 --focus
+spaces < shift - 7 : yabai -m window --space 7 --focus
+spaces < shift - 8 : yabai -m window --space 8 --focus
+spaces < shift - 9 : yabai -m window --space 9 --focus
 
 # Toggle layout
 hyper - a : ~/.config/skhd/scripts/changeLayout.sh
