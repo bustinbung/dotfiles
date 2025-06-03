@@ -142,3 +142,6 @@ service < r : source ~/.config/yabai/yabairc && skhd -r; skhd -k "escape"
 
 # Restart yabai
 service < y : yabai --restart-service; skhd -k "escape"
+
+# Restart skhd
+service < s : skhd -r; skhd -k "escape"
