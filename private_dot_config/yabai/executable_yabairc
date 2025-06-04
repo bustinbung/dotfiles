@@ -58,7 +58,7 @@ yabai -m space 2 --layout bsp
 yabai -m rule --add app="Vivaldi"   space=3
 
 # float apps
-yabai -m rule --add app="^(System Settings|Finder|Digital Color Meter|Shottr|1Password|Font Book|ProtonVPN|OneDrive|Shottr|Nextcloud|Google Drive|Box|Creative Cloud|Homerow|Archive Utility|Calculator|Bartender 5|Multiviewer for F1|Raycast)$" \
+yabai -m rule --add app="^(System Settings|Digital Color Meter|Shottr|1Password|Font Book|ProtonVPN|OneDrive|Shottr|Nextcloud|Google Drive|Box|Creative Cloud|Homerow|Archive Utility|Calculator|Bartender 5|Multiviewer for F1|Raycast)$" \
                     manage=off
 yabai -m rule --add label="About This Mac" app="System Information" manage=off
 yabai -m rule --add title="Developer Tools" manage=off
