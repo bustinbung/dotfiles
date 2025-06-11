@@ -109,3 +109,61 @@
 (after! bash-completion
   (setq bash-completion-prog "/opt/homebrew/bin/bash"))
 {{- end }}
+
+;; Org-mode
+(after! org-mode
+  (org-clock-persistence-insinuate)
+  (setq org-clock-persist t)
+  (setq jj/keep-clock-running nil))
+
+;; Custom functions for clocking in and out
+;; From: https://doc.norang.ca/org-mode.html#Clocking
+(defun jj/punch-in (arg)
+  "Start continuous clocking and set default task."
+  (interactive "p")
+  (setq jj/keep-clock-running t)
+  (save-restriction
+    (widen)
+    ;; Find tags on current task
+    (if (and (equal major-mode 'org-mode) (not (org-before-first-heading-p)) (eq arg 4))
+        (org-clock-in '(16))
+      (jj/clock-in-default-task))))
+
+(defun jj/punch-out ()
+  (interactive)
+  (setq jj/keep-clock-running nil)
+  (when (org-clock-is-active)
+    (org-clock-out))
+  (org-agenda-remove-restriction-lock))
+
+(defun jj/clock-in-default-task ()
+  (save-excursion
+    (org-with-point-at org-clock-default-task
+      (org-clock-in))))
+
+(defun jj/clock-in-parent-task ()
+  "Move point to the parent (project) task if any and clock in"
+  (let ((parent-task))
+    (save-excursion
+      (save-restriction
+        (widen)
+        (while (and (not parent-task) (org-up-heading-safe))
+          (when (member (nth 2 (org-heading-components)) org-todo-keywords-1)
+            (setq parent-task (point))))
+        (if parent-task
+            (org-with-point-at parent-task
+              (org-clock-in))
+          (when jj/keep-clock-running
+            (jj/clock-in-default-task)))))))
+
+(defun jj/clock-out-maybe ()
+  (when (and jj/keep-clock-running
+             (not org-clock-clocking-in)
+             (marker-buffer org-clock-default-task)
+             (not org-clock-resolving-clocks-due-to-idleness))
+    (jj/clock-in-parent-task)))
+
+(add-hook! 'org-clock-out-hook 'jj/clock-out-maybe 'append)
+
+(map! :mode org-mode-map :desc "+jj/punch-in" :leader "m c p i" #'jj/punch-in)
+(map! :mode org-mode-map :desc "+jj/punch-out" :leader "m c p o" #'jj/punch-out)
