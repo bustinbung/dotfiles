@@ -100,6 +100,10 @@ n ()
 # nvm
 {{- if eq .chezmoi.os "linux" }}
 source /usr/share/nvm/init-nvm.sh
+{{- else if eq .chezmoi.os "darwin" }}
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 {{- end }}
 
 # chezmoi
