@@ -114,7 +114,10 @@
 (after! org
   (org-clock-persistence-insinuate)
   (setq org-clock-persist t)
-  (setq jj/keep-clock-running nil))
+  (setq jj/keep-clock-running nil)
+  (setq org-todo-keywords
+        (quote ((sequence "TODO(t)" "NEXT(n)" "|"  "DONE(d)")
+                (sequence "WAIT(w@/!)" "HOLD(h@/!)" "|" "KILL(k@/!)")))))
 
 ;; Custom functions for clocking in and out
 ;; From: https://doc.norang.ca/org-mode.html#Clocking
