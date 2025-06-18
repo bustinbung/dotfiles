@@ -124,6 +124,8 @@
 (defun jj/punch-in (arg)
   "Start continuous clocking and set default task."
   (interactive "p")
+  (if (not (marker-position org-clock-default-task))
+      (error "ERROR: Default task not set!"))
   (setq jj/keep-clock-running t)
   (save-restriction
     (widen)
