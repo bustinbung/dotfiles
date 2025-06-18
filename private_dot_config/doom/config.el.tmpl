@@ -111,7 +111,7 @@
 {{- end }}
 
 ;; Org-mode
-(after! org-mode
+(after! org
   (org-clock-persistence-insinuate)
   (setq org-clock-persist t)
   (setq jj/keep-clock-running nil))
@@ -163,7 +163,7 @@
              (not org-clock-resolving-clocks-due-to-idleness))
     (jj/clock-in-parent-task)))
 
-(add-hook! 'org-clock-out-hook 'jj/clock-out-maybe 'append)
+(add-hook! 'org-clock-out-hook :append 'jj/clock-out-maybe )
 
 (map! :mode org-mode-map :desc "+jj/punch-in" :leader "m c p i" #'jj/punch-in)
 (map! :mode org-mode-map :desc "+jj/punch-out" :leader "m c p o" #'jj/punch-out)
