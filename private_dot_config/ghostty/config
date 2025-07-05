@@ -1,0 +1,4 @@
+theme = catppuccin-mocha.conf
+font-family = "Monaspace Argon Var"
+font-size = 14
+# window-decoration = none
