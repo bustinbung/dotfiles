@@ -50,3 +50,4 @@
 
 (package! catppuccin-theme)
 (package! astro-ts-mode)
+(package! org-roam)

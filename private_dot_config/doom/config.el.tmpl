@@ -175,3 +175,12 @@
 (map! :mode org-mode-map :desc "+jj/punch-in" :leader "m c p i" #'jj/punch-in)
 (map! :mode org-mode-map :desc "+jj/punch-out" :leader "m c p o" #'jj/punch-out)
 (map! :mode org-mode-map :desc "org-clock-update-time-maybe" :leader "m c u" #'org-clock-update-time-maybe)
+
+;; org-roam
+(after! org-roam
+  (setq org-roam-directory (file-truename(concat org-directory "notes/")))
+  (setq org-roam-graph-link-hidden-types '("file" "http" "https"))
+  (org-roam-db-autosync-mode))
+
+(map! :mode org-mode-map :desc "org-roam-node-insert" :leader "m l m" #'org-roam-node-insert)
+(map! :mode org-mode-map :desc "org-roam-buffer-toggle" :leader "o m" #'org-roam-buffer-toggle)
