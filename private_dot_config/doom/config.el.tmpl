@@ -118,7 +118,8 @@
   (setq jj/keep-clock-running nil)
   (setq org-todo-keywords
         (quote ((sequence "TODO(t)" "NEXT(n)" "|"  "DONE(d)")
-                (sequence "WAIT(w@/!)" "HOLD(h@/!)" "|" "KILL(k@/!)")))))
+                (sequence "WAIT(w@/!)" "HOLD(h@/!)" "|" "KILL(k@/!)"))))
+  (setq org-log-into-drawer "LOGBOOK"))
 
 ;; Custom functions for clocking in and out
 ;; From: https://doc.norang.ca/org-mode.html#Clocking
