@@ -59,6 +59,9 @@ window < shift - f : yabai -m window --toggle float; skhd -k "escape"
 hyper - f : yabai -m window --toggle zoom-fullscreen
 window < f : yabai -m window --toggle zoom-fullscreen; skhd -k "escape"
 
+# Toggle native fullscreen
+window < ctrl - f : yabai -m window --toggle native-fullscreen; skhd -k "escape"
+
 # Scratchpad
 hyper - s : yabai -m window --toggle magic
 window < s : yabai -m window --toggle magic; skhd -k "escape"
