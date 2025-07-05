@@ -108,9 +108,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 {{- end }}
 
-# chezmoi
-eval "$(chezmoi completion zsh)"
-
 # yazi
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
@@ -119,3 +116,15 @@ function y() {
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	\rm -f -- "$tmp"
 }
+
+# zsh completions
+{{- if eq .chezmoi.os "darwin" }}
+if type brew &>/dev/null; then
+    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+    autoload -Uz compinit
+    compinit
+fi
+{{- else if eq .chezmoi.os "linux" }}
+eval "$(chezmoi completion zsh)"
+{{- end }}
