@@ -119,7 +119,8 @@
   (setq org-todo-keywords
         (quote ((sequence "TODO(t)" "NEXT(n)" "|"  "DONE(d)")
                 (sequence "WAIT(w@/!)" "HOLD(h@/!)" "|" "KILL(k@/!)"))))
-  (setq org-log-into-drawer "LOGBOOK"))
+  (setq org-log-into-drawer "LOGBOOK")
+  (setq org-export-date-timestamp-format "%Y-%m-%d"))
 
 ;; Custom functions for clocking in and out
 ;; From: https://doc.norang.ca/org-mode.html#Clocking
