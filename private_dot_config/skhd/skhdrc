@@ -1,9 +1,3 @@
-### Blacklist ###
-.blacklist [
-    "DaVinci Resolve"
-    "Adobe Premiere Pro"
-]
-
 ### Modes ###
 # mauve
 :: default : borders active_color=0xffcba6f7
