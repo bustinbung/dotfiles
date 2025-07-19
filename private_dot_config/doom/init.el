@@ -193,4 +193,4 @@
        ;;literate
        (default +bindings +smartparens))
 
-;;(setq evil-respect-visual-line-mode t)
+(setq evil-respect-visual-line-mode t)
