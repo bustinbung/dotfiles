@@ -4,7 +4,11 @@
 	{{- if eq .chezmoi.os "darwin"}}
 	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 	{{- else if eq .chezmoi.os "linux"}}
+	{{-   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+	program = "/mnt/c/Users/justin/AppData/Local/1Password/app/8/op-ssh-sign-wsl"
+	{{-   else }}
 	program = /opt/1Password/op-ssh-sign
+	{{-   end }}
 	{{- end }}
 [commit]
 	gpgsign = true
@@ -14,3 +18,8 @@
 	name = Justin Jung
 [init]
 	defaultBranch = main
+
+{{- if (and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft")) }}
+[core]
+	sshCommand = ssh.exe
+{{- end }}
