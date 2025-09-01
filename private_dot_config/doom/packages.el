@@ -53,3 +53,4 @@
 (package! org-roam)
 (package! dape
   :recipe (:local-repo "packages/dape"))
+(package! dired-preview)

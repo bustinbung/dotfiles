@@ -191,3 +191,20 @@
 
 (map! :mode org-mode-map :desc "org-roam-node-insert" :leader "m l m" #'org-roam-node-insert)
 (map! :mode org-mode-map :desc "org-roam-buffer-toggle" :leader "o m" #'org-roam-buffer-toggle)
+
+;; dired-preview
+(after! dired-preview
+  (setq dired-preview-delay 0.3)
+  (setq dired-preview-max-file-size (expt 2 20))
+  (setq dired-preview-ignored-extensions-regexp
+        (concat "\\."
+                "\\(gz\\|"
+                "zst\\|"
+                "tar\\|"
+                "xz\\|"
+                "rar\\|"
+                "zip\\|"
+                "iso\\|"
+                "epub\\|"
+                "\\)"))
+  (dired-preview-global-mode 1))
