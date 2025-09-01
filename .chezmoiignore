@@ -1,15 +1,13 @@
 README.md
 
 # Linux only
-{{ if eq .chezmoi.os "linux" }}
-{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+{{- if ne .chezmoi.os "linux" }}
 .config/hypr/
 .config/waybar/
 .config/rofi/
 Pictures
 .config/electron-flags.conf
-{{   end }}
-{{ end }}
+{{- end }}
 
 # MacOS only
 {{- if ne .chezmoi.os "darwin" }}
