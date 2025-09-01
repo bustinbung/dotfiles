@@ -81,6 +81,10 @@
 (setq-default indent-tabs-mode t)
 (setq-default tab-width 4)
 
+(after! whitespace
+  (setq whitespace-line-column 80) ;; limit line length
+  (setq whitespace-style '(face lines-tail trailing indentation)))
+
 ;; Disables scroll margin in specific buffer types
 ;; From https://github.com/syl20bnr/spacemacs/issues/3098
 (add-hook! '(
