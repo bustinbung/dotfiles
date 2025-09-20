@@ -14,6 +14,23 @@ Pictures
 .config/sketchybar/
 .config/skhd/
 .config/yabai/
-.config/borders
-.config/brew
+.config/borders/
+.config/brew/
+{{- end }}
+
+# Windows only
+{{- if ne .chezmoi.os "windows" }}
+AppData/
+{{- end }}
+
+# Windows excludes
+{{- if eq .chezmoi.os "windows" }}
+.config/kitty/
+.config/ghostty/
+.config/1Password/
+.config/hyfetch.json
+.config/zsh/
+.config/qmk/
+.config/vscodium/
+.zshenv
 {{- end }}
