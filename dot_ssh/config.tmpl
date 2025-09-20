@@ -1,5 +1,7 @@
+{{- if ne .chezmoi.os "windows" }}
 Host *
     IdentityAgent "~/.1password/agent.sock"
+{{- end }}
 
 Host server-justin
     HostName 193.122.142.64
