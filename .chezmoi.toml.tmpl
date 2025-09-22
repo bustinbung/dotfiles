@@ -3,8 +3,14 @@
 {{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
 {{- end -}}
 
+{{- $is_wsl := false -}}
+{{- if hasKey .chezmoi.kernel "osrelease" -}}
+{{-   $is_wsl = (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
+{{- end -}}
+
 [data]
     osid = {{ $osid | quote }}
+    is_wsl = {{ $is_wsl }}
 
 [diff]
     command = "nvim"
