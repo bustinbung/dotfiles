@@ -1,7 +1,7 @@
 README.md
 
-# Linux only
-{{- if ne .chezmoi.os "linux" }}
+# Arch only
+{{- if (not (.chezmoi.osRelease.id | contains "arch")) }}
 .config/hypr/
 .config/waybar/
 .config/rofi/
