@@ -34,3 +34,11 @@ AppData/
 .config/vscodium/
 .zshenv
 {{- end }}
+
+# WSL excludes
+{{- if eq .chezmoi.os "linux" }}
+{{-   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+.config/1Password/
+.ssh/config
+{{-   end }}
+{{- end }}
