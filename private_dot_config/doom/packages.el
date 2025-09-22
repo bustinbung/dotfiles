@@ -51,6 +51,5 @@
 (package! catppuccin-theme)
 (package! astro-ts-mode)
 (package! org-roam)
-(package! dape
-  :recipe (:local-repo "packages/dape"))
+(package! dape)
 (package! dired-preview)
