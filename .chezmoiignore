@@ -1,7 +1,7 @@
 README.md
 
 # Arch only
-{{- if (not (.chezmoi.osRelease.id | contains "arch")) }}
+{{- if ne .osid "linux-arch" }}
 .config/hypr/
 .config/waybar/
 .config/rofi/
@@ -10,7 +10,7 @@ Pictures
 {{- end }}
 
 # MacOS only
-{{- if ne .chezmoi.os "darwin" }}
+{{- if ne .osid "darwin" }}
 .config/sketchybar/
 .config/skhd/
 .config/yabai/
@@ -19,12 +19,12 @@ Pictures
 {{- end }}
 
 # Windows only
-{{- if ne .chezmoi.os "windows" }}
+{{- if ne .osid "windows" }}
 AppData/
 {{- end }}
 
 # Windows excludes
-{{- if eq .chezmoi.os "windows" }}
+{{- if eq .osid "windows" }}
 .config/kitty/
 .config/ghostty/
 .config/1Password/
