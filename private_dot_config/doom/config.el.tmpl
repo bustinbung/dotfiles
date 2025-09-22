@@ -40,9 +40,14 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
+{{- if .is_wsl }}
+(setq org-directory "/mnt/d/Nextcloud/org/"
+      org-agenda-files (directory-files-recursively (concat org-directory "agenda/") "\\.org$"))
+{{- else }}
 (setq org-directory "~/Nextcloud/org/"
       org-agenda-files (directory-files-recursively (concat org-directory "agenda/") "\\.org$"))
 ;;      org-agenda-files (directory-files-recursively "~/Nextcloud/org" "\\.org$"))
+{{- end }}
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
