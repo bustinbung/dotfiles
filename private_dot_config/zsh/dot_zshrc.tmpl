@@ -85,3 +85,12 @@ fi
 {{- else if eq .chezmoi.os "linux" }}
 eval "$(chezmoi completion zsh)"
 {{- end }}
+
+# pnpm
+{{- if eq .osid "linux-arch" }}
+export PNPM_HOME="$HOME/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+{{- end }}
