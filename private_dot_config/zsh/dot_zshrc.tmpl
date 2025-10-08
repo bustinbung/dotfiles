@@ -41,7 +41,7 @@ alias python='python3'
 # Config
 alias cs='source $ZDOTDIR/.zshrc'
 
-{{ if eq .chezmoi.os "linux" -}}
+{{ if eq .osid "linux-arch" -}}
 # VSCodium
 alias vscodium='vscodium --ozone-platform=wayland'
 {{- end }}
