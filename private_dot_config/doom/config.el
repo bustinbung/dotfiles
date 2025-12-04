@@ -77,6 +77,14 @@
 	org-roam-graph-link-hidden-types '("file" "http" "https"))
   (org-roam-db-autosync-mode))
 
+;; org-expiry
+
+(use-package! org-expiry
+  :after org
+  :init
+  (setq org-expiry-created-property-name "CREATED"
+	org-expiry-inactive-timestamps t))
+
 ;; dired-preview
 
 (after! dired-preview
