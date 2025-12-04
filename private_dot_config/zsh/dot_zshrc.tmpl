@@ -1,8 +1,10 @@
 # Load antidote
 {{- if eq .chezmoi.os "darwin" }}
 source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
-{{- else if eq .chezmoi.os "linux" }}
+{{- else if eq .osid "linux-arch" }}
 source /usr/share/zsh-antidote/antidote.zsh
+{{- else if eq .chezmoi.os "linux" }}
+source ${ZDOTDIR}/.antidote/antidote.zsh
 {{- end }}
 antidote load ${ZDOTDIR}/.zplugins
 
@@ -41,7 +43,7 @@ alias python='python3'
 # Config
 alias cs='source $ZDOTDIR/.zshrc'
 
-{{ if eq .osid "linux-arch" -}}
+{{ if eq .chezmoi.os "linux" -}}
 # VSCodium
 alias vscodium='vscodium --ozone-platform=wayland'
 {{- end }}
