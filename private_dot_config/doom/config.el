@@ -12,7 +12,7 @@
 ;;; DISPLAY OPTIONS ;;;
 
 (setq doom-font (font-spec :family "Monaspace Argon Var" :size 16 :width 'Regular)
-      doom-variable-pitch-font (font-spec :family "SF Pro Text" :size 13))
+      doom-variable-pitch-font (font-spec :family "Noto Sans" :size 13))
 
 (setq doom-theme 'catppuccin)
 
