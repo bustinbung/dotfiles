@@ -51,7 +51,7 @@
 (after! org
   (org-clock-persistence-insinuate)
   (setq org-clock-persist t
-	org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
+	org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
 			    (sequence "WAIT(w@/!)" "HOLD(h@/!)" "|" "KILL(k@/!)"))
 	org-log-into-drawer "LOGBOOK"
 	org-export-date-timestamp-format "%Y-%m-%d"
