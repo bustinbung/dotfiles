@@ -16,6 +16,7 @@ Pictures
 .config/yabai/
 .config/borders/
 .config/brew/
+.config/emacs-plus/
 {{- end }}
 
 # Windows only
