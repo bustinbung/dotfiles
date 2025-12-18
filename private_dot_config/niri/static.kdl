@@ -1,0 +1,62 @@
+// Static niri configuration
+// -- For options that aren't expected to change often 
+
+input {
+	keyboard {
+		xkb {
+		}
+
+		numlock
+	}
+
+	touchpad {
+		off
+	}
+
+	mouse {
+	}
+
+	trackpoint {
+		off
+	}
+
+	focus-follows-mouse max-scroll-amount="0%"
+}
+
+output "DP-2" {
+	mode "1920x1080"
+	position x=0 y=0
+}
+output "DP-1" {
+	mode "1920x1080"
+	position x=1920 y=0
+}
+
+layout {
+	center-focused-column "never"
+	always-center-single-column
+
+	preset-column-widths {
+		proportion 0.33333
+		proportion 0.5
+		proportion 0.66667
+	}
+
+	default-column-width { proportion 0.5; }
+}
+
+prefer-no-csd
+
+hotkey-overlay {
+	skip-at-startup
+}
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+animations {
+}
+
+window-rule {
+	geometry-corner-radius 12
+	clip-to-geometry true
+}
+
