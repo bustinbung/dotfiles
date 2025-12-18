@@ -17,6 +17,7 @@ binds {
 	Ctrl+Shift+Alt+Super+O repeat=false { toggle-overview; }
 
 	Mod+Q repeat=false { close-window; }
+	Ctrl+Shift+Alt+Super+Q repeat=false { close-window; }
 
 	Mod+Left  { focus-column-left; }
 	Mod+Down  { focus-window-down; }
