@@ -11,3 +11,9 @@ window-rule {
 	open-maximized true
 }
 
+window-rule {
+	match app-id="vivaldi-stable"
+	match title="Settings"
+
+	open-floating true
+}
