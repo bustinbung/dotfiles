@@ -12,8 +12,7 @@ window-rule {
 }
 
 window-rule {
-	match app-id="vivaldi-stable"
-	match title="Settings"
+	match app-id="vivaldi-stable" title="Settings"
 
 	open-floating true
 }
