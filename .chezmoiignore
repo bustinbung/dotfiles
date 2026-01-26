@@ -43,3 +43,11 @@ AppData/
 .ssh/config
 {{-   end }}
 {{- end }}
+
+# Only grab doom for emacs CT
+{{- if eq .chezmoi.hostname "emacs" }}
+!.config/*doom/
+*/*
+.ssh
+.zshenv
+{{- end }}
