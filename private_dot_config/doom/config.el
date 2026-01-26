@@ -61,11 +61,15 @@
   (setq org-capture-templates
 	`(("i" "Inbox" entry (file+headline +org-capture-todo-file "Inbox")
 	  ,(concat "* TODO %?\n"
-		   "CAPTURED: %U")
+		   ":LOGBOOK:\n"
+		   "CAPTURED: %U\n"
+		   ":END:")
 	  :prepend t)
 	  ("n" "Notes" entry (file+headline +org-capture-notes-file "Notes")
 	   ,(concat "* Note (%a)\n"
+		    ":LOGBOOK:\n"
 		    "CAPTURED: %U\n"
+		    ":END:\n"
 		    "%?")
 	   :prepend t))))
 (add-hook! 'org-clock-out-hook :append 'jj/clock-out-maybe)
