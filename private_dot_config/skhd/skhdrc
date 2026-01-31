@@ -125,8 +125,8 @@ hyper - e : osascript ~/.config/skhd/scripts/openNewFinder.scpt
 apps < e : osascript ~/.config/skhd/scripts/openNewFinder.scpt; skhd -k "escape"
 
 # Emacs client
-hyper - n : open "/Applications/Emacs (Client).app"
-apps < n : open "/Applications/Emacs (Client).app"; skhd -k "escape"
+hyper - n : open "/Applications/Emacs Client.app"
+apps < n : open "/Applications/Emacs Client.app"; skhd -k "escape"
 
 ### Service ###
 
