@@ -6,8 +6,10 @@ export VISUAL=nvim
 # Set locale
 export LANG='en_US.UTF-8'
 
-# Set 1P SSH
-export SSH_AUTH_SOCK=~/.1password/agent.sock
+# Set SSH agent
+{{- if eq .chezmoi.os "darwin" }}
+export SSH_AUTH_SOCK=/Users/justin/.bitwarden-ssh-agent.sock
+{{- end }}
 
 # PATH additions
 typeset -U PATH path
