@@ -1,10 +1,11 @@
 README.md
 
-# Arch only
-{{- if ne .osid "linux-arch" }}
+# Linux only
+{{- if ne .chezmoi.os "linux" }}
 .config/hypr/
 .config/waybar/
 .config/rofi/
+.config/niri
 Pictures
 .config/electron-flags.conf
 {{- end }}
