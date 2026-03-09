@@ -46,7 +46,8 @@
 ; Need to be set before org loads
 (setq org-directory "~/Nextcloud/org"
       org-agenda-files (list "inbox.org" "agenda.org"
-			     "projects.org" "notes.org"))
+			     "projects.org" "notes.org"
+			     "mjr.org" "hbm.org"))
 
 (after! org
   (org-clock-persistence-insinuate)
