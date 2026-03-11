@@ -63,6 +63,9 @@ yabai -m rule --add app="^(System Settings|Digital Color Meter|Shottr|1Password|
 yabai -m rule --add label="About This Mac" app="System Information" manage=off
 yabai -m rule --add title="Developer Tools" manage=off
 
+yabai -m rule --add app="MultiViewer" manage=off
+yabai -m rule --add app="MultiViewer" opacity=1
+
 # events
 # yabai -m signal --add event=space_created action="sketchybar --trigger space_created"
 # yabai -m signal --add event=space_destroyed action="sketchybar --trigger space_destroyed"
