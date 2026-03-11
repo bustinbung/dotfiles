@@ -44,7 +44,7 @@
 ;; org-mode
 
 ; Need to be set before org loads
-(setq org-directory "~/Nextcloud/org"
+(setq org-directory "~/org"
       org-agenda-files (list "inbox.org" "agenda.org"
 			     "projects.org" "notes.org"
 			     "mjr.org" "hbm.org"))
