@@ -47,7 +47,7 @@
 (setq org-directory "~/org"
       org-agenda-files (list "inbox.org" "agenda.org"
 			     "projects.org" "notes.org"
-			     "mjr.org" "hbm.org"))
+			     "mjr.org" "cgm.org"))
 
 (after! org
   (org-clock-persistence-insinuate)
