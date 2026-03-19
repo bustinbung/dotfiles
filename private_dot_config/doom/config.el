@@ -110,10 +110,11 @@
 
 ;;; KEYBINDS ;;;
 
+(map! :desc "Agenda list" :leader "o a l" #'org-agenda-list)
+
 (map! :mode org-mode-map :desc "+jj/punch-in" :leader "m c p i" #'jj/punch-in)
 (map! :mode org-mode-map :desc "+jj/punch-out" :leader "m c p o" #'jj/punch-out)
 (map! :mode org-mode-map :desc "org-clock-update-time-maybe" :leader "m c u" #'org-clock-update-time-maybe)
-
 (map! :mode org-mode-map :desc "org-roam-node-insert" :leader "m l m" #'org-roam-node-insert)
 (map! :mode org-mode-map :desc "org-roam-buffer-toggle" :leader "o m" #'org-roam-buffer-toggle)
 
