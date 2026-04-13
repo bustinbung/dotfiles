@@ -58,6 +58,7 @@
 	org-export-date-timestamp-format "%Y-%m-%d"
 	+org-capture-todo-file "inbox.org"
 	+org-capture-notes-file "notes.org"
+	org-refile-use-outline-path 't
 	jj/keep-clock-running nil)
   (setq org-capture-templates
 	`(("i" "Inbox" entry (file+headline +org-capture-todo-file "Inbox")
