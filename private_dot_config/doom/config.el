@@ -44,7 +44,7 @@
 ;; org-mode
 
 ; Need to be set before org loads
-(setq org-directory "~/org"
+(setq org-directory "~/OpenCloud/Personal/org"
       org-agenda-files (list "inbox.org" "agenda.org"
 			     "projects.org" "notes.org"
 			     "mjr.org" "cgm.org"))
