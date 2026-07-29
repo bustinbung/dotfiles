@@ -1,0 +1,98 @@
+# Modes
+:: window @ : borders active_color=0xff9ccfd8
+:: service @ : borders active_color=0xffeb6f92
+:: default : borders active_color=0xffc4a7e7
+
+# Window
+meh - w ; window
+window < escape ; default
+window < meh - w ; default
+
+meh - h : paneru send-cmd window focus west
+meh - j : paneru send-cmd window focus south
+meh - k : paneru send-cmd window focus north
+meh - l : paneru send-cmd window focus east
+window < h : paneru send-cmd window focus west
+window < j : paneru send-cmd window focus south
+window < k : paneru send-cmd window focus north
+window < l : paneru send-cmd window focus east
+
+meh + cmd - h : paneru send-cmd window swap west
+meh + cmd - j : paneru send-cmd window swap south
+meh + cmd - k : paneru send-cmd window swap north
+meh + cmd - l : paneru send-cmd window swap east
+window < shift - h : paneru send-cmd window swap west
+window < shift - j : paneru send-cmd window swap south
+window < shift - k : paneru send-cmd window swap north
+window < shift - l : paneru send-cmd window swap east
+
+meh - f : paneru send-cmd window fullwidth
+window < f : paneru send-cmd window fullwidth
+
+meh - c : paneru send-cmd window center
+window < c : paneru send-cmd window center
+
+meh - r : paneru send-cmd window resize
+# minus
+meh - 0x1b : paneru send-cmd window shrink
+# plus
+meh - 0x18 : paneru send-cmd window grow
+window < r : paneru send-cmd window resize
+
+meh - m : paneru send-cmd window manage
+window < m : paneru send cmd window manage
+
+# comma
+meh - 0x2b : paneru send-cmd window stack
+# period
+meh - 0x2f : paneru send-cmd window unstack
+# slash
+meh - 0x2c : paneru send-cmd window equalize
+window < 0x2b : paneru send-cmd window stack
+window < 0x2f : paneru send-cmd window unstack
+window < 0x2c : paneru send-cmd window equalize
+
+# Workspaces
+meh - 1 : paneru send-cmd window virtualnum 1
+meh - 2 : paneru send-cmd window virtualnum 2
+meh - 3 : paneru send-cmd window virtualnum 3
+meh - 4 : paneru send-cmd window virtualnum 4
+meh - 5 : paneru send-cmd window virtualnum 5
+meh - 6 : paneru send-cmd window virtualnum 6
+meh - 7 : paneru send-cmd window virtualnum 7
+meh - 8 : paneru send-cmd window virtualnum 8
+meh - 9 : paneru send-cmd window virtualnum 9
+meh - 0 : paneru send-cmd window virtualnum 10
+
+meh - pageup: paneru send-cmd window virtual north
+meh - pagedown: paneru send-cmd window virtual south
+meh - i : paneru send-cmd window virtual north
+meh - u : paneru send-cmd window virtual south
+
+meh + cmd - 1 : paneru send-cmd window virtualmovenum 1
+meh + cmd - 2 : paneru send-cmd window virtualmovenum 2
+meh + cmd - 3 : paneru send-cmd window virtualmovenum 3
+meh + cmd - 4 : paneru send-cmd window virtualmovenum 4
+meh + cmd - 5 : paneru send-cmd window virtualmovenum 5
+meh + cmd - 6 : paneru send-cmd window virtualmovenum 6
+meh + cmd - 7 : paneru send-cmd window virtualmovenum 7
+meh + cmd - 8 : paneru send-cmd window virtualmovenum 8
+meh + cmd - 9 : paneru send-cmd window virtualmovenum 9
+meh + cmd - 0 : paneru send-cmd window virtualmovenum 10
+
+meh + cmd - pageup: paneru send-cmd window virtualmove south
+meh + cmd - pagedown: paneru send-cmd window virtualmove north
+meh + cmd - i : paneru send-cmd window virtualmove south
+meh + cmd - u : paneru send-cmd window virtualmove north
+
+# Apps
+meh - t : kitty -d ~ -1
+meh - e : osascript -e 'tell app "Finder"' -e 'make new Finder window to folder "Macintosh HD:Users:justin"' -e 'activate' -e 'end tell'
+
+# Service
+# semicolon
+meh - 0x29 ; service
+service < escape ; default
+
+service < s : skhd -r; skhd -k "escape"
+service < p : paneru restart ; skhd -k "escape"

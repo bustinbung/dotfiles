@@ -1,0 +1,98 @@
+# Modes
+:: window @ : borders active_color=0xff9ccfd8
+:: service @ : borders active_color=0xffeb6f92
+:: default : borders active_color=0xffc4a7e7
+
+# Window
+meh - w ; window
+window < escape ; default
+window < meh - w ; default
+
+meh - h : omniwmctl command focus left
+meh - j : omniwmctl command focus down
+meh - k : omniwmctl command focus up
+meh - l : omniwmctl command focus right
+window < h : omniwmctl command focus left
+window < j : omniwmctl command focus down
+window < k : omniwmctl command focus up
+window < l : omniwmctl command focus right
+
+meh + cmd - h : omniwmctl command move-column left
+meh + cmd - j : omniwmctl command move-column down
+meh + cmd - k : omniwmctl command move-column up
+meh + cmd - l : omniwmctl command move-column right
+window < shift - h : omniwmctl command move-column left
+window < shift - j : omniwmctl command move-column down
+window < shift - k : omniwmctl command move-column up
+window < shift - l : omniwmctl command move-column right
+
+meh - f : omniwmctl command toggle-column-full-width
+window < f : omniwmctl command toggle-column-full-width
+
+# minus
+meh - 0x1b : omniwmctl command cycle-column-width backward
+# plus
+meh - 0x18 : omniwmctl command cycle-column-width forward
+window < 0x1b : omniwmctl command cycle-column-width backward
+window < 0x18 : omniwmctl command cycle-column-width forward
+
+meh - m : omniwmctl command toggle-focused-window-floating
+window < m : omniwmctl command toggle-focused-window-floating
+
+# comma
+meh - 0x2b : omniwmctl command move left
+# period
+meh - 0x2f : omniwmctl command move right
+window < 0x2b : omniwmctl command move left
+window < 0x2f : omniwmctl command move right
+window < 0x2c : paneru send-cmd window equalize
+
+meh - o : omniwmctl command toggle-overview
+
+# Workspaces
+meh - 1 : omniwmctl command switch-workspace 1
+meh - 2 : omniwmctl command switch-workspace 2
+meh - 3 : omniwmctl command switch-workspace 3
+meh - 4 : omniwmctl command switch-workspace 4
+meh - 5 : omniwmctl command switch-workspace 5
+meh - 6 : omniwmctl command switch-workspace 6
+meh - 7 : omniwmctl command switch-workspace 7
+meh - 8 : omniwmctl command switch-workspace 8
+meh - 9 : omniwmctl command switch-workspace 9
+meh - 0 : omniwmctl command switch-workspace 10
+
+meh - pageup: omniwmctl command switch-workspace next
+meh - pagedown: omniwmctl command switch-workspace prev
+meh - i : omniwmctl command switch-workspace next
+meh - u : omniwmctl command switch-workspace prev
+
+meh + cmd - 1 : omniwmctl command move-to-workspace 1
+meh + cmd - 2 : omniwmctl command move-to-workspace 2
+meh + cmd - 3 : omniwmctl command move-to-workspace 3
+meh + cmd - 4 : omniwmctl command move-to-workspace 4
+meh + cmd - 5 : omniwmctl command move-to-workspace 5
+meh + cmd - 6 : omniwmctl command move-to-workspace 6
+meh + cmd - 7 : omniwmctl command move-to-workspace 7
+meh + cmd - 8 : omniwmctl command move-to-workspace 8
+meh + cmd - 9 : omniwmctl command move-to-workspace 9
+meh + cmd - 0 : omniwmctl command move-to-workspace 10
+
+meh + cmd - pageup: omniwmctl command move-to-workspace down
+meh + cmd - pagedown: omniwmctl command move-to-workspace up
+meh + cmd - i : omniwmctl command move-to-workspace down
+meh + cmd - u : omniwmctl command move-to-workspace up
+
+meh - 0x21 : omniwmctl command focus-monitor prev
+meh - 0x1e : omniwmctl command focus-monitor next
+
+# Apps
+meh - t : kitty -d ~ -1
+meh - e : osascript -e 'tell app "Finder"' -e 'make new Finder window to folder "Macintosh HD:Users:justin"' -e 'activate' -e 'end tell'
+
+# Service
+# semicolon
+meh - 0x29 ; service
+service < escape ; default
+
+service < s : skhd -r; skhd -k "escape"
+service < p : paneru restart ; skhd -k "escape"
