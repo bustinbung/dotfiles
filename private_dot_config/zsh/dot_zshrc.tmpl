@@ -1,96 +1,18 @@
-# Load antidote
-{{- if eq .chezmoi.os "darwin" }}
-source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
-{{- else if eq .osid "linux-arch" }}
-source /usr/share/zsh-antidote/antidote.zsh
-{{- else if eq .chezmoi.os "linux" }}
-source ${ZDOTDIR}/.antidote/antidote.zsh
-{{- end }}
+#load antidote plugins
+source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 antidote load ${ZDOTDIR}/.zplugins
 
-### SETTINGS ###
-# Ignore comments
-setopt interactivecomments
-
-# Set ZLE vi mode
+# set ZLE vi mode
 bindkey -v
 
-# zsh-history-substring-search config
+# search history by substring
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 
-### ALIASES ###
-alias ls='ls --color=auto'
-alias la='ls -a'
-# long, hidden, file markers, unit suffixes
-alias ll='ls -laFh'
+# aliases
+alias ls="ls --color=auto -1AFh"
+alias ll="ls --color=auto -laFh"
 
-alias cp='cp -iv'
-alias mv='mv -iv'
-alias rm='rm -iv'
-alias mkdir='mkdir -v'
-alias rmdir='rmdir -v'
-alias ln='ln -v'
-
-alias grep='grep --color=auto'
-
-alias ssh='kitten ssh'
-
-alias ec='emacsclient -nc -a ""'
-
-alias python='python3'
-
-# Config
-alias cs='source $ZDOTDIR/.zshrc'
-
-{{ if eq .chezmoi.os "linux" -}}
-# VSCodium
-alias vscodium='vscodium --ozone-platform=wayland'
-{{- end }}
-
-### TOOLS ###
 # zoxide
-eval "$(zoxide init --cmd cd zsh)"
+eval "$(zoxide init zsh --cmd cd)"
 
-# starship
-export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
-eval "$(starship init zsh)"
-
-# nvm
-{{- if eq .chezmoi.os "linux" }}
-export NVM_DIR="$HOME/.config/nvm"
-{{- else if eq .chezmoi.os "darwin" }}
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-{{- end }}
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# yazi
-function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	yazi "$@" --cwd-file="$tmp"
-	IFS= read -r -d '' cwd < "$tmp"
-	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
-	\rm -f -- "$tmp"
-}
-
-# zsh completions
-{{- if eq .chezmoi.os "darwin" }}
-if type brew &>/dev/null; then
-    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-
-    autoload -Uz compinit
-    compinit
-fi
-{{- else if eq .chezmoi.os "linux" }}
-eval "$(chezmoi completion zsh)"
-{{- end }}
-
-# pnpm
-{{- if eq .osid "linux-arch" }}
-export PNPM_HOME="$HOME/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-{{- end }}

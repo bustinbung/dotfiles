@@ -1,23 +1,8 @@
-# Set programs
+# default programs
 export PAGER=less
 export EDITOR=nvim
 export VISUAL=nvim
 
-# Set locale
-export LANG='en_US.UTF-8'
-
-# Set SSH agent
-{{- if eq .chezmoi.os "darwin" }}
+# ssh agent
 export SSH_AUTH_SOCK=/Users/justin/.bitwarden-ssh-agent.sock
-{{- end }}
 
-# PATH additions
-typeset -U PATH path
-
-{{- if eq .chezmoi.os "darwin" }}
-path+=('/Users/justin/.config/emacs/bin')
-path+=('/opt/homebrew/opt/node@24/bin:$PATH')
-{{- else if eq .chezmoi.os "linux" }}
-path+=('/home/justin/.config/emacs/bin')
-{{- end }}
-export PATH
