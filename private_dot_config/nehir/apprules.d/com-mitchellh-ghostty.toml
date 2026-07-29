@@ -1,0 +1,8 @@
+id = "F1565666-77D6-48DA-9EF0-13F73F74D710"
+order = 2
+
+[match]
+bundleId = "com.mitchellh.ghostty"
+
+[effect]
+assignToWorkspace = "2"

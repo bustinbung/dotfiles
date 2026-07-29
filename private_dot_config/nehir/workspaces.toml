@@ -1,0 +1,29 @@
+[1]
+monitor = "main"
+
+[2]
+monitor = "main"
+
+[3]
+monitor = "main"
+
+[4]
+monitor = "main"
+
+[5]
+monitor = "main"
+
+[6]
+monitor = "secondary"
+
+[7]
+monitor = "secondary"
+
+[8]
+monitor = "secondary"
+
+[9]
+monitor = "secondary"
+
+[10]
+monitor = "secondary"

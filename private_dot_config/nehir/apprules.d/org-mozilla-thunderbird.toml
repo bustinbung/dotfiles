@@ -1,0 +1,8 @@
+id = "F2EC3F50-B3A7-49C6-A410-4A8AF84C44C8"
+order = 0
+
+[match]
+bundleId = "org.mozilla.thunderbird"
+
+[effect]
+assignToWorkspace = "1"
