@@ -1,0 +1,24 @@
+[options]
+focus_follows_mouse = true
+mouse_follows_focus = false
+animation_speed = 15
+sliver_width = 1
+
+[swipe]
+[swipe.gesture]
+fingers_count = 0
+vertical = false
+
+[bindings]
+
+[padding]
+top = 4
+bottom = 4
+left = 4
+right = 4
+
+[windows]
+[windows.all]
+title = ".*"
+vertical_padding = 2
+horizontal_padding = 2
