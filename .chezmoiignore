@@ -18,6 +18,9 @@ Pictures
 .config/borders/
 .config/brew/
 .config/emacs-plus/
+.config/nehir/
+.config/omniwm
+.config/paneru
 {{- end }}
 
 # Windows only
