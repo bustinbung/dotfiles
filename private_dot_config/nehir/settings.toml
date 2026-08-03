@@ -21,10 +21,10 @@ moveMouseToFocusedWindow = false
 size = 4.0
 
 [gaps.outer]
-bottom = 0.0
-left = 0.0
-right = 0.0
-top = 0.0
+bottom = 2.0
+left = 2.0
+right = 2.0
+top = 2.0
 
 [general]
 developerModeEnabled = false
