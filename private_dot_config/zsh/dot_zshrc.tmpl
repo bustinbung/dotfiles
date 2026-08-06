@@ -1,5 +1,9 @@
 #load antidote plugins
+{{ if eq .chezmoi.os "darwin" -}}
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+{{ else if eq .chezmoi.os "linux" -}}
+source ~/.config/zsh/.antidote/antidote.zsh
+{{ end -}}
 antidote load ${ZDOTDIR}/.zplugins
 
 # set ZLE vi mode

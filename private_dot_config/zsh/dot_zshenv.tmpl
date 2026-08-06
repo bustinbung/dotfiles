@@ -4,5 +4,8 @@ export EDITOR=nvim
 export VISUAL=nvim
 
 # ssh agent
+{{ if eq .chezmoi.os "darwin" -}}
 export SSH_AUTH_SOCK=/Users/justin/.bitwarden-ssh-agent.sock
-
+{{ else if eq .chezmoi.os "linux" -}}
+export SSH_AUTH_SOCK=/home/justin/.var/app/com.bitwarden.desktop/data/.bitwarden-ssh-agent.sock
+{{ end -}}
