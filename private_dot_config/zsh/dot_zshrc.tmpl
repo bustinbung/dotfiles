@@ -1,4 +1,5 @@
-#load antidote plugins
+# vim: set ft=sh:
+# load antidote plugins
 {{ if eq .chezmoi.os "darwin" -}}
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 {{ else if eq .chezmoi.os "linux" -}}
