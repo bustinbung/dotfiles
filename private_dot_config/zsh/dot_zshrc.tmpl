@@ -20,3 +20,8 @@ alias ll="ls --color=auto -laFh"
 # zoxide
 eval "$(zoxide init zsh --cmd cd)"
 
+# fnm
+FNM_PATH="/opt/homebrew/opt/fnm/bin"
+if [ -d "$FNM_PATH" ]; then
+  eval "$(fnm env --shell zsh)"
+fi
