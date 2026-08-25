@@ -22,7 +22,9 @@ alias ll="ls --color=auto -laFh"
 eval "$(zoxide init zsh --cmd cd)"
 
 # fnm
+{{ if eq .chezmoi.os "darwin" -}}
 FNM_PATH="/opt/homebrew/opt/fnm/bin"
+{{ end -}}
 if [ -d "$FNM_PATH" ]; then
-  eval "$(fnm env --shell zsh)"
+  eval "$(fnm env --shell zsh --use-on-cd --version-file-strategy=recursive)"
 fi
