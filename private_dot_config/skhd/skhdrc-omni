@@ -86,7 +86,7 @@ meh - 0x21 : omniwmctl command focus-monitor prev
 meh - 0x1e : omniwmctl command focus-monitor next
 
 # Apps
-meh - t : kitty -d ~ -1
+meh - t : osascript -e 'tell application "Ghostty"' -e 'new window' -e 'activate' -e 'end tell'
 meh - e : osascript -e 'tell app "Finder"' -e 'make new Finder window to folder "Macintosh HD:Users:justin"' -e 'activate' -e 'end tell'
 
 # Service
