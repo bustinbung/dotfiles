@@ -8,89 +8,92 @@ meh - w ; window
 window < escape ; default
 window < meh - w ; default
 
-meh - h : nehirctl command focus left
-meh - j : nehirctl command focus down
-meh - k : nehirctl command focus up
-meh - l : nehirctl command focus right
-window < h : nehirctl command focus left
-window < j : nehirctl command focus down
-window < k : nehirctl command focus up
-window < l : nehirctl command focus right
+meh - h : omniwmctl command focus left
+meh - j : omniwmctl command focus down
+meh - k : omniwmctl command focus up
+meh - l : omniwmctl command focus right
+window < h : omniwmctl command focus left
+window < j : omniwmctl command focus down
+window < k : omniwmctl command focus up
+window < l : omniwmctl command focus right
 
-meh + cmd - h : nehirctl command move-column left
-meh + cmd - j : nehirctl command move-column down
-meh + cmd - k : nehirctl command move-column up
-meh + cmd - l : nehirctl command move-column right
-window < cmd - h : nehirctl command move-column left
-window < cmd - j : nehirctl command move-column down
-window < cmd - k : nehirctl command move-column up
-window < cmd - l : nehirctl command move-column right
+meh + cmd - h : omniwmctl command move-column left
+meh + cmd - j : omniwmctl command move-column down
+meh + cmd - k : omniwmctl command move-column up
+meh + cmd - l : omniwmctl command move-column right
+window < cmd - h : omniwmctl command move-column left
+window < cmd - j : omniwmctl command move-column down
+window < cmd - k : omniwmctl command move-column up
+window < cmd - l : omniwmctl command move-column right
 
-meh - f : nehirctl command toggle-column-full-width
-window < f : nehirctl command toggle-column-full-width
-
-# meh - c : paneru send-cmd window center
-# window < c : paneru send-cmd window center
-
-# meh - r : paneru send-cmd window resize
-# window < r : paneru send-cmd window resize
+meh - f : omniwmctl command toggle-container-full-primary-span
+window < f : omniwmctl command toggle-container-full-primary-span
 
 # minus
-meh - 0x1b : nehirctl command cycle-column-width backward
+meh - 0x1b : omniwmctl command cycle-size backward
 # plus
-meh - 0x18 : nehirctl command cycle-column-width forward
+meh - 0x18 : omniwmctl command cycle-size forward
+window < 0x1b : omniwmctl command cycle-size backward
+window < 0x18 : omniwmctl command cycle-size forward
 
-meh - m : nehirctl command toggle-focused-window-floating
-window < m : nehirctl command toggle-focused-window-floating
+meh - m : omniwmctl command toggle-focused-window-floating
+window < m : omniwmctl command toggle-focused-window-floating
 
 # comma
-meh - 0x2b : nehirctl command consume-window-into-column
+meh - 0x2b : omniwm command consume-window-into-column
 # period
-meh - 0x2f : nehirctl command expel-window-from-column
+meh - 0x2f : omniwm command expel-window-from-column
 # left bracket
-meh - 0x21 : nehirctl command consume-or-expel-window-left
+meh - 0x21 : omniwm command consume-or-expel-window-left
 # right bracket
-meh - 0x1e : nehirctl command consume-or-expel-window-right
-# slash
-meh - 0x2c : nehirctl command balance-sizes
-window < 0x2b : nehirctl command consume-window-into-column
-window < 0x2f : nehirctl command expel-window-from-column
-window < 0x2c : nehirctl command balance-sizes
-window < 0x21 : nehirctl command consume-or-expel-window-left
-window < 0x1e : nehirctl command consume-or-expel-window-right
+meh - 0x1e : omniwm command consume-or-expel-window-right
+# # slash
+# meh - 0x2c : nehirctl command balance-sizes
+window < 0x2b : omniwm command consume-window-into-column
+window < 0x2f : omniwm command expel-window-from-column
+window < 0x2c : omniwm command balance-sizes
+window < 0x21 : omniwm command consume-or-expel-window-left
+window < 0x1e : omniwm command consume-or-expel-window-right
+
+meh - o : omniwmctl command toggle-overview
 
 # Workspaces
-meh - 1 : nehirctl command switch-workspace 1
-meh - 2 : nehirctl command switch-workspace 2
-meh - 3 : nehirctl command switch-workspace 3
-meh - 4 : nehirctl command switch-workspace 4
-meh - 5 : nehirctl command switch-workspace 5
-meh - 6 : nehirctl command switch-workspace 6
-meh - 7 : nehirctl command switch-workspace 7
-meh - 8 : nehirctl command switch-workspace 8
-meh - 9 : nehirctl command switch-workspace 9
-meh - 0 : nehirctl command switch-workspace 10
+meh - 1 : omniwmctl command switch-workspace 1
+meh - 2 : omniwmctl command switch-workspace 2
+meh - 3 : omniwmctl command switch-workspace 3
+meh - 4 : omniwmctl command switch-workspace 4
+meh - 5 : omniwmctl command switch-workspace 5
+meh - 6 : omniwmctl command switch-workspace 6
+meh - 7 : omniwmctl command switch-workspace 7
+meh - 8 : omniwmctl command switch-workspace 8
+meh - 9 : omniwmctl command switch-workspace 9
+meh - 0 : omniwmctl command switch-workspace 10
 
-meh - pageup : nehirctl command switch-workspace prev
-meh - pagedown : nehirctl command switch-workspace next
-meh - i : nehirctl command switch-workspace prev
-meh - u : nehirctl command switch-workspace next
+meh - pageup: omniwmctl command switch-workspace next
+meh - pagedown: omniwmctl command switch-workspace prev
+meh - i : omniwmctl command switch-workspace next
+meh - u : omniwmctl command switch-workspace prev
 
-meh + cmd - 1 : nehirctl command move-to-workspace 1
-meh + cmd - 2 : nehirctl command move-to-workspace 2
-meh + cmd - 3 : nehirctl command move-to-workspace 3
-meh + cmd - 4 : nehirctl command move-to-workspace 4
-meh + cmd - 5 : nehirctl command move-to-workspace 5
-meh + cmd - 6 : nehirctl command move-to-workspace 6
-meh + cmd - 7 : nehirctl command move-to-workspace 7
-meh + cmd - 8 : nehirctl command move-to-workspace 8
-meh + cmd - 9 : nehirctl command move-to-workspace 9
-meh + cmd - 0 : nehirctl command move-to-workspace 10
+meh + cmd - 1 : omniwmctl command move-to-workspace 1
+meh + cmd - 2 : omniwmctl command move-to-workspace 2
+meh + cmd - 3 : omniwmctl command move-to-workspace 3
+meh + cmd - 4 : omniwmctl command move-to-workspace 4
+meh + cmd - 5 : omniwmctl command move-to-workspace 5
+meh + cmd - 6 : omniwmctl command move-to-workspace 6
+meh + cmd - 7 : omniwmctl command move-to-workspace 7
+meh + cmd - 8 : omniwmctl command move-to-workspace 8
+meh + cmd - 9 : omniwmctl command move-to-workspace 9
+meh + cmd - 0 : omniwmctl command move-to-workspace 10
 
-meh + cmd - pageup : nehirctl command move-to-workspace up
-meh + cmd - pagedown : nehirctl command move-to-workspace down
-meh + cmd - i : nehirctl command move-to-workspace up
-meh + cmd - u : nehirctl command move-to-workspace down
+meh + cmd - pageup: omniwmctl command move-to-workspace down
+meh + cmd - pagedown: omniwmctl command move-to-workspace up
+meh + cmd - i : omniwmctl command move-to-workspace down
+meh + cmd - u : omniwmctl command move-to-workspace up
+
+# meh - 0x21 : omniwmctl command focus-monitor prev
+# meh - 0x1e : omniwmctl command focus-monitor next
+
+meh - y : omniwmctl command open-menu-anywhere
 
 # Apps
 meh - t : osascript -e 'tell application "Ghostty"' -e 'new window' -e 'activate' -e 'end tell'
